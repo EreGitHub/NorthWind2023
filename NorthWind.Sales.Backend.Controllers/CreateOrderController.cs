@@ -4,6 +4,7 @@ public static class CreateOrderController
 {
     public static WebApplication UseCreateOrderController(this WebApplication app)
     {
+        //de manera predeterminada el MapPost nos devuelve un ok anose que le digamos lo contrario
         app.MapPost(Endpoints.CreateOrder, CreateOrder);
 
         //app.MapPost(Endpoints.CreateOrder,
@@ -13,15 +14,15 @@ public static class CreateOrderController
         return app;
     }
 
-    static async Task<IResult> CreateOrder(CreateOrderDto orderDto, ICreateOrderInputPort inputPort, ICreateOrderOutputPort presenter)
-    {
-        await inputPort.Handle(orderDto);
-        return Results.Ok(presenter.OrderId);
-    }
-
-    //public static async Task<int> CreateOrder(CreateOrderDto orderDto, ICreateOrderInputPort inputPort, ICreateOrderOutputPort presenter)
+    //static async Task<IResult> CreateOrder(CreateOrderDto orderDto, ICreateOrderInputPort inputPort, ICreateOrderOutputPort presenter)
     //{
     //    await inputPort.Handle(orderDto);
-    //    return presenter.OrderId;
+    //    return Results.Ok(presenter.OrderId);
     //}
+
+    public static async Task<int> CreateOrder(CreateOrderDto orderDto, ICreateOrderInputPort inputPort, ICreateOrderOutputPort presenter)
+    {
+        await inputPort.Handle(orderDto);
+        return presenter.OrderId;
+    }
 }
