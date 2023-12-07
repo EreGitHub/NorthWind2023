@@ -7,7 +7,8 @@ public static class DependencyContainer
     {
         services.AddUseCasesServices()
             .AddRespositories(configureOptions)
-            .AddPresenters();
+            .AddPresenters()
+            .AddValidators();
 
         return services;
     }
