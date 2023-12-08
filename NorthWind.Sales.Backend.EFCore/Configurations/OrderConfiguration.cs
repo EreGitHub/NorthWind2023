@@ -21,5 +21,11 @@ internal class OrderConfiguration : IEntityTypeConfiguration<Order>
 
         builder.Property(order => order.ShipPostalCode)
             .HasMaxLength(10);
+
+        builder.HasOne<Customer>()
+            .WithMany()
+            .HasForeignKey(order => order.CustomerId);
+        //.OnDelete(DeleteBehavior.ClientSetNull)
+        //.HasConstraintName("FK_Orders_Customers");
     }
 }

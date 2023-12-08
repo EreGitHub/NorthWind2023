@@ -5,3 +5,6 @@ global using NorthWind.Sales.Backend.BusinessObjects.Aggregates;
 global using Microsoft.Extensions.DependencyInjection;
 global using NorthWind.Sales.Backend.UseCases.CreateOrder;
 global using NorthWind.sales.Entities.Interfaces.Common;
+global using NorthWind.sales.Entities.ValueObject;
+global using NorthWind.Sales.Backend.BusinessObjects.ValueObjects;
+global using NorthWind.Sales.Backend.UseCases.Resources;

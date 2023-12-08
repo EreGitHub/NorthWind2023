@@ -1,27 +1,33 @@
 ﻿namespace NorthWind.Sales.Backend.UseCases.CreateOrder;
 
-//es interna por solo se usara en este proyecto
 internal class CreateOrderInteractor : ICreateOrderInputPort
 {
     readonly ICreateOrderOutputPort OutputPort;
     readonly ICommandsRepository Repository;
-    readonly IModelValidator<CreateOrderDto> Validator;
+    readonly IEnumerable<IModelValidator<CreateOrderDto>> Validators;
 
-    public CreateOrderInteractor(ICreateOrderOutputPort outputPort, ICommandsRepository repository, IModelValidator<CreateOrderDto> validator)
+    public CreateOrderInteractor(ICreateOrderOutputPort outputPort, ICommandsRepository repository, IEnumerable<IModelValidator<CreateOrderDto>> validators)
     {
         OutputPort = outputPort;
         Repository = repository;
-        Validator = validator;
+        Validators = validators;
     }
 
     public async ValueTask Handle(CreateOrderDto orderDto)
     {
-        if (!await Validator.Validate(orderDto))
+        var Enumerator = Validators.GetEnumerator();
+        bool IsValid = true;
+        while (IsValid && Enumerator.MoveNext())
         {
-            string Errors = string.Join(" ", Validator.Errors
-                .Select(error => $"{error.PropertyName}: {error.Message}"));
+            IsValid = await Enumerator.Current.Validate(orderDto);
+            if (!IsValid)
+            {
+                string Errors = string.Join(" ",
+                    Enumerator.Current.Errors
+                        .Select(error => $"{error.PropertyName}: {error.Message}"));
 
-            throw new Exception(Errors);
+                throw new Exception(Errors);
+            }
         }
 
         OrderAggreate Order = OrderAggreate.From(orderDto);

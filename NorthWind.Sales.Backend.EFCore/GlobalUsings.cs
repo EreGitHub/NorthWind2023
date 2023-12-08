@@ -8,3 +8,5 @@ global using NorthWind.Sales.Backend.BusinessObjects.Interfaces.Repositories;
 global using NorthWind.Sales.Backend.EFCore.DataContext;
 global using NorthWind.Sales.Backend.EFCore.Options;
 global using NorthWind.Sales.Backend.EFCore.Repositories;
+global using Microsoft.Extensions.Options;
+global using NorthWind.Sales.Backend.BusinessObjects.ValueObjects;

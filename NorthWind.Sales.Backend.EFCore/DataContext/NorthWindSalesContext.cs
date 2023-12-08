@@ -1,7 +1,4 @@
-﻿using Microsoft.Extensions.Options;
-using NorthWind.Sales.Backend.EFCore.Options;
-
-namespace NorthWind.Sales.Backend.EFCore.DataContext;
+﻿namespace NorthWind.Sales.Backend.EFCore.DataContext;
 
 internal class NorthWindSalesContext : DbContext
 {
@@ -19,6 +16,8 @@ internal class NorthWindSalesContext : DbContext
 
     public DbSet<Order> Orders { get; set; }
     public DbSet<Entities.OrderDetail> OrderDetails { get; set; }
+    public DbSet<Customer> Customers { get; set; }
+    public DbSet<Product> Products { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

@@ -5,10 +5,10 @@ public static class DependencyContainer
 {
     public static IServiceCollection AddNorthWindSalesServices(this IServiceCollection services, Action<DBOptions> configureOptions)
     {
-        services.AddUseCasesServices()
+        services.AddValidators()
+            .AddUseCasesServices()
             .AddRespositories(configureOptions)
-            .AddPresenters()
-            .AddValidators();
+            .AddPresenters();
 
         return services;
     }

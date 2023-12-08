@@ -7,6 +7,7 @@ public static class DependencyContainer
         services.Configure(configuraDbOptions);
         services.AddDbContext<NorthWindSalesContext>();
         services.AddScoped<ICommandsRepository, CommandsRepository>();
+        services.AddScoped<IQueriesRepository, QueriesRepository>();
 
         return services;
     }
