@@ -1,4 +1,6 @@
 ﻿<EditForm Model="Order" OnInvalidSubmit="Order.Send">
+    <ModelValidator Validator="Order.Validator" />
+    <ValidationSummary />
     <div class="form-group">
         <label for="customerId">
             @CreateOrderMessages.CustomerIdLabel
@@ -7,6 +9,7 @@
                    id="customerId"
                    placeholder="@CreateOrderMessages.CustomerIdLabel"
                    @bind-Value=Order.CustomerId />
+        <ValidationMessage For="() => Order.CustomerId" />
     </div>
     <div class="form-group">
         <label for="shipAddress">
@@ -16,6 +19,7 @@
                    id="shipAddress"
                    placeholder="@CreateOrderMessages.ShipAddressLabel"
                    @bind-Value=Order.ShipAddress />
+        <ValidationMessage For="() => Order.ShipAddress" />
     </div>
     <div class="form-group">
         <label for="shipCity">
@@ -25,6 +29,7 @@
                    id="shipCity"
                    placeholder="@CreateOrderMessages.ShipCityLabel"
                    @bind-Value=Order.ShipCity />
+        <ValidationMessage For="() => Order.ShipCity" />
     </div>
     <div class="form-group">
         <label for="shipCountry">
@@ -34,6 +39,7 @@
                    id="shipCountry"
                    placeholder="@CreateOrderMessages.ShipCountryLabel"
                    @bind-Value=Order.ShipCountry />
+        <ValidationMessage For="() => Order.ShipCountry" />
     </div>
     <div class="form-group">
         <label for="shipPostalCode">
@@ -43,6 +49,7 @@
                    id="shipPostalCode"
                    placeholder="@CreateOrderMessages.ShipPostalCodeLabel"
                    @bind-Value=Order.ShipPostalCode />
+        <ValidationMessage For="() => Order.ShipPostalCode" />
     </div>
     <hr />
     <div class="row">
@@ -62,12 +69,15 @@
         <div class="row" style="padding-bottom:5px">
             <div class="col">
                 <InputNumber class="form-control" @bind-Value="Item.ProductId" />
+                <ValidationMessage For="() => Item.ProductId" />
             </div>
             <div class="col">
                 <InputNumber class="form-control" @bind-Value="Item.UnitPrice" />
+                <ValidationMessage For="() => Item.UnitPrice" />
             </div>
             <div class="col">
                 <InputNumber class="form-control" @bind-Value="Item.Quantity" />
+                <ValidationMessage For="() => Item.Quantity" />
             </div>
         </div>
     }
