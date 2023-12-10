@@ -14,15 +14,15 @@ internal class CreateOrderDtoValidator : ValidatorBase<CreateOrderDto>
             .NotEmpty()
             .WithMessage(CreateOrderMessages.ShipAddressRequired)
             .MaximumLength(60)
-            .WithMessage(CreateOrderMessages.ShipAddressMaximunLength);
+            .WithMessage(CreateOrderMessages.ShipAddressMaximumLength);
 
         RuleFor(order => order.ShipCity)
             .NotEmpty()
             .WithMessage(CreateOrderMessages.ShipCityRequired)
             .MinimumLength(3)
-            .WithMessage(CreateOrderMessages.ShipCityMinimunLength)
+            .WithMessage(CreateOrderMessages.ShipCityMinimumLength)
             .MaximumLength(15)
-            .WithMessage(CreateOrderMessages.ShipCityMaximunLength);
+            .WithMessage(CreateOrderMessages.ShipCityMaximumLength);
 
         RuleFor(order => order.ShipCountry)
             .NotEmpty()
@@ -30,7 +30,7 @@ internal class CreateOrderDtoValidator : ValidatorBase<CreateOrderDto>
             .MinimumLength(3)
             .WithMessage(CreateOrderMessages.ShipCountryMinimumLength)
             .MaximumLength(15)
-            .WithMessage(CreateOrderMessages.ShipCountryMaximunLength);
+            .WithMessage(CreateOrderMessages.ShipCountryMaximumLength);
 
         RuleFor(order => order.ShipPostalCode)
             .MaximumLength(10)

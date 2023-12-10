@@ -70,7 +70,7 @@ namespace NorthWind.Sales.Frontend.Views.Resources {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Orden {0} creada..
+        ///   Busca una cadena traducida similar a Orden {0} creada.
         /// </summary>
         internal static string CreateOrderTemplate {
             get {

@@ -8,9 +8,6 @@ internal class NorthWindSalesContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        //Migration
-        //add-Migration initialCreate -p NorthWind.Sales.Backend.EFCore -s NorthWind.Sales.Backend.EFCore -c NorthWindContext
-        //Update-Database -p NorthWind.Sales.Backend.EFCore -s NorthWind.Sales.Backend.EFCore -context NorthWindContext
         optionsBuilder.UseSqlServer(DBOptions.Value.ConnectionString);
     }
 

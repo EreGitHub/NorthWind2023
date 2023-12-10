@@ -117,14 +117,14 @@ namespace NorthWind.Sales.Entities.Validators.CreateOrder.Resources {
         /// <summary>
         ///   Busca una cadena traducida similar a La longitud maxima de la direccion es de 60 caracteres..
         /// </summary>
-        internal static string ShipAddressMaximunLength {
+        internal static string ShipAddressMaximumLength {
             get {
-                return ResourceManager.GetString("ShipAddressMaximunLength", resourceCulture);
+                return ResourceManager.GetString("ShipAddressMaximumLength", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Debe proporcionar la direccion de envio.
+        ///   Busca una cadena traducida similar a Debe proporcionar la direccion de envio..
         /// </summary>
         internal static string ShipAddressRequired {
             get {
@@ -135,18 +135,18 @@ namespace NorthWind.Sales.Entities.Validators.CreateOrder.Resources {
         /// <summary>
         ///   Busca una cadena traducida similar a La longitud maxima de la ciudad es de 15 caracteres..
         /// </summary>
-        internal static string ShipCityMaximunLength {
+        internal static string ShipCityMaximumLength {
             get {
-                return ResourceManager.GetString("ShipCityMaximunLength", resourceCulture);
+                return ResourceManager.GetString("ShipCityMaximumLength", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Busca una cadena traducida similar a Debe especificar al menos 3 caracteres del nombre de la ciudad..
         /// </summary>
-        internal static string ShipCityMinimunLength {
+        internal static string ShipCityMinimumLength {
             get {
-                return ResourceManager.GetString("ShipCityMinimunLength", resourceCulture);
+                return ResourceManager.GetString("ShipCityMinimumLength", resourceCulture);
             }
         }
         
@@ -162,9 +162,9 @@ namespace NorthWind.Sales.Entities.Validators.CreateOrder.Resources {
         /// <summary>
         ///   Busca una cadena traducida similar a La longitud maxima del pais es de 15 caracteres..
         /// </summary>
-        internal static string ShipCountryMaximunLength {
+        internal static string ShipCountryMaximumLength {
             get {
-                return ResourceManager.GetString("ShipCountryMaximunLength", resourceCulture);
+                return ResourceManager.GetString("ShipCountryMaximumLength", resourceCulture);
             }
         }
         

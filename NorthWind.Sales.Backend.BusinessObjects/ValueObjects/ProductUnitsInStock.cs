@@ -2,8 +2,8 @@
 
 public class ProductUnitsInStock
 {
-    public int ProductId { get; set; }
-    public short UnitsInStock { get; set; }
+    public int ProductId { get; }
+    public short UnitsInStock { get; }
 
     public ProductUnitsInStock(int productId, short unitsInStock)
     {

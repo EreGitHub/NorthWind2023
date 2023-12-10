@@ -8,11 +8,11 @@ public class ModelValidator<T> : ComponentBase
     [Parameter]
     public IModelValidator<T> Validator { get; set; }
 
-    ValidationMessageStore ValidationMessageStore { get; set; }
+    ValidationMessageStore ValidationMessageStore;
 
     FieldIdentifier GetFieldIdentifier(object model, string propertyName)
     {
-        char[] PropertyNameSeparator = new char[] { '.', '[' };
+        char[] PropertyNameSeparators = new char[] { '.', '[' };
 
         object NewModel = model;
 
@@ -21,7 +21,7 @@ public class ModelValidator<T> : ComponentBase
         string Token = null;
         do
         {
-            SeparatorIndex = PropertyPath.LastIndexOfAny(PropertyNameSeparator);
+            SeparatorIndex = PropertyPath.IndexOfAny(PropertyNameSeparators);
             if (SeparatorIndex >= 0)
             {
                 Token = PropertyPath.Substring(0, SeparatorIndex);

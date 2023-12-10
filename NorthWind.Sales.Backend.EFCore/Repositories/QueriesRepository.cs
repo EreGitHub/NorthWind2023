@@ -16,7 +16,7 @@ internal class QueriesRepository : IQueriesRepository
         return Result?.CurrentBalance;
     }
 
-    public async Task<IEnumerable<ProductUnitsInStock>> GetProductUnitsInStock(IEnumerable<int> productIds) =>
+    public async Task<IEnumerable<ProductUnitsInStock>> GetProductsUnitsInStock(IEnumerable<int> productIds) =>
         await Contex.Products
             .Where(product => productIds.Contains(product.Id))
             .Select(product => new ProductUnitsInStock(product.Id, product.UnitsInStock))

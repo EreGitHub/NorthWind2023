@@ -29,9 +29,9 @@ public class OrderAggreate : Order
             ShipPostalCode = orderDto.ShipPostalCode,
         };
 
-        foreach (var item in orderDto.OrderDetails)
+        foreach (var Item in orderDto.OrderDetails)
         {
-            Order.AddDetail(item.ProductId, item.UnitPrice, item.Quantity);
+            Order.AddDetail(Item.ProductId, Item.UnitPrice, Item.Quantity);
         }
 
         return Order;

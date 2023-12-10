@@ -135,22 +135,22 @@
   <data name="QuantityGreatherThanZero" xml:space="preserve">
     <value>Debe especificar la cantidad ordenada del producto.</value>
   </data>
-  <data name="ShipAddressMaximunLength" xml:space="preserve">
+  <data name="ShipAddressMaximumLength" xml:space="preserve">
     <value>La longitud maxima de la direccion es de 60 caracteres.</value>
   </data>
   <data name="ShipAddressRequired" xml:space="preserve">
-    <value>Debe proporcionar la direccion de envio</value>
+    <value>Debe proporcionar la direccion de envio.</value>
   </data>
-  <data name="ShipCityMaximunLength" xml:space="preserve">
+  <data name="ShipCityMaximumLength" xml:space="preserve">
     <value>La longitud maxima de la ciudad es de 15 caracteres.</value>
   </data>
-  <data name="ShipCityMinimunLength" xml:space="preserve">
+  <data name="ShipCityMinimumLength" xml:space="preserve">
     <value>Debe especificar al menos 3 caracteres del nombre de la ciudad.</value>
   </data>
   <data name="ShipCityRequired" xml:space="preserve">
     <value>Debe proporcionar la ciudad de envio.</value>
   </data>
-  <data name="ShipCountryMaximunLength" xml:space="preserve">
+  <data name="ShipCountryMaximumLength" xml:space="preserve">
     <value>La longitud maxima del pais es de 15 caracteres.</value>
   </data>
   <data name="ShipCountryMinimumLength" xml:space="preserve">

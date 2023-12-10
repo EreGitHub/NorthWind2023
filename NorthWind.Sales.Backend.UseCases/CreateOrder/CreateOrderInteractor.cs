@@ -16,7 +16,7 @@ internal class CreateOrderInteractor : ICreateOrderInputPort
     public async ValueTask Handle(CreateOrderDto orderDto)
     {
         //preguntar: esto se tiene que hacer en cada interactor?
-        var Enumerator = Validators.GetEnumerator();
+        using var Enumerator = Validators.GetEnumerator();
         bool IsValid = true;
         while (IsValid && Enumerator.MoveNext())
         {

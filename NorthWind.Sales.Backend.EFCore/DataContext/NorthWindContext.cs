@@ -7,7 +7,9 @@ internal class NorthWindContext : DbContext
     {
         //Migration
         //Add-Migration initialCreate -p NorthWind.Sales.Backend.EFCore -s NorthWind.Sales.Backend.EFCore -c NorthWindContext
+        //dotnet ef migrations add initialCreate -p NorthWind.Sales.Backend.EFCore -s NorthWind.Sales.Backend.EFCore -c NorthWindContext
         //Update-Database -p NorthWind.Sales.Backend.EFCore -s NorthWind.Sales.Backend.EFCore -context NorthWindContext
+        //dotnet ef database update -p NorthWind.Sales.Backend.EFCore -s NorthWind.Sales.Backend.EFCore -c NorthWindContext
         optionsBuilder.UseSqlServer("Data Source=.,15000;Initial Catalog=NorthWinDB2023;User ID=sa;Password=Control123+;TrustServerCertificate=true");
     }
 

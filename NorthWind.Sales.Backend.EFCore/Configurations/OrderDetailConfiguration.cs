@@ -7,7 +7,7 @@ internal class OrderDetailConfiguration : IEntityTypeConfiguration<Entities.Orde
         builder.HasKey(orderDetail => new { orderDetail.OrderId, orderDetail.ProductId });
 
         builder.Property(orderDetail => orderDetail.UnitPrice)
-            .HasPrecision(8, 4);
+            .HasPrecision(8, 2);
 
         builder.HasOne<Product>()
             .WithMany()

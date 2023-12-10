@@ -4,8 +4,8 @@ public class CreateOrderViewModel
 {
     readonly ICreateOrderGateway Gateway;
 
-    public CreateOrderViewModel(ICreateOrderGateway gateway, IModelValidator<CreateOrderViewModel> valiodator) =>
-        (Gateway, Validator) = (gateway, valiodator);
+    public CreateOrderViewModel(ICreateOrderGateway gateway, IModelValidator<CreateOrderViewModel> validator) =>
+        (Gateway, Validator) = (gateway, validator);
 
     public string CustomerId { get; set; }
     public string ShipAddress { get; set; }

@@ -3,11 +3,11 @@
 internal class CreateOrderDBValidator : IModelValidator<CreateOrderDto>
 {
     readonly IQueriesRepository Repository;
-    readonly List<ValidationError> ErrorField = new();
+    readonly List<ValidationError> ErrorsField = new();
 
     public CreateOrderDBValidator(IQueriesRepository repository) => Repository = repository;
 
-    public IEnumerable<ValidationError> Errors => ErrorField;
+    public IEnumerable<ValidationError> Errors => ErrorsField;
 
     //este metodo Validate va devolver el resultado del metodo de validacion del ValidateCustomer y del ValidateProducts
     //si ambos metodos devuelven true, entonces Validate devuelve true, si alguno de los dos devuelve false, entonces Validate devuelve false
@@ -24,7 +24,7 @@ internal class CreateOrderDBValidator : IModelValidator<CreateOrderDto>
 
         var ProductIds = RequiredQuantities.Select(product => product.ProductId);
 
-        IEnumerable<ProductUnitsInStock> InStockQuantities = await Repository.GetProductUnitsInStock(ProductIds);
+        IEnumerable<ProductUnitsInStock> InStockQuantities = await Repository.GetProductsUnitsInStock(ProductIds);
 
         var RequiredVsInStock = RequiredQuantities
             .GroupJoin(InStockQuantities,
@@ -39,28 +39,28 @@ internal class CreateOrderDBValidator : IModelValidator<CreateOrderDto>
                 InStock = singleInStock?.UnitsInStock
             });
 
-        foreach (var item in RequiredVsInStock)
+        foreach (var Item in RequiredVsInStock)
         {
-            if (!item.InStock.HasValue)
+            if (!Item.InStock.HasValue)
             {
-                ErrorField.Add(new ValidationError(
-                    nameof(item.ProductId),
-                    string.Format(CreateOrderMessages.ProductIdNotFoundErrorTemplate, item.ProductId)));
+                ErrorsField.Add(new ValidationError(
+                    nameof(Item.ProductId),
+                    string.Format(CreateOrderMessages.ProductIdNotFoundErrorTemplate, Item.ProductId)));
             }
             else
             {
-                if (item.InStock < item.Required)
+                if (Item.InStock < Item.Required)
                 {
-                    ErrorField.Add(new ValidationError(
-                        nameof(item.ProductId),
+                    ErrorsField.Add(new ValidationError(
+                        nameof(Item.ProductId),
                         string.Format(
                             CreateOrderMessages.UnitsInStockLessThanQuantityErrorTemplate,
-                            item.Required, item.InStock, item.ProductId)));
+                            Item.Required, Item.InStock, Item.ProductId)));
                 }
             }
         }
 
-        return !ErrorField.Any();
+        return !ErrorsField.Any();
     }
 
     private async Task<bool> ValidateCustomer(CreateOrderDto model)
@@ -69,15 +69,15 @@ internal class CreateOrderDBValidator : IModelValidator<CreateOrderDto>
 
         if (CurrentBalance == null)
         {
-            ErrorField.Add(new ValidationError(nameof(model.CustomerId), CreateOrderMessages.CustomerIdNotFoundError));
+            ErrorsField.Add(new ValidationError(nameof(model.CustomerId), CreateOrderMessages.CustomerIdNotFoundError));
         }
         else if (CurrentBalance > 0)
         {
-            ErrorField.Add(new ValidationError(
+            ErrorsField.Add(new ValidationError(
                 nameof(model.CustomerId),
                 string.Format(CreateOrderMessages.CustomerWithBalanceErrorTemplate, model.CustomerId, CurrentBalance)));
         }
 
-        return !ErrorField.Any();
+        return !ErrorsField.Any();
     }
 }

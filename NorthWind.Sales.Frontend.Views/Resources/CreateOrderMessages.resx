@@ -121,7 +121,7 @@
     <value>Agregar producto</value>
   </data>
   <data name="CreateOrderTemplate" xml:space="preserve">
-    <value>Orden {0} creada.</value>
+    <value>Orden {0} creada</value>
   </data>
   <data name="CustomerIdLabel" xml:space="preserve">
     <value>Id del cliente</value>
