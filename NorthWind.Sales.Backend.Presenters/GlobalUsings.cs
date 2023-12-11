@@ -11,3 +11,4 @@ global using NorthWind.Sales.Backend.BusinessObjects.Interfaces.CreateOrder;
 global using NorthWind.Sales.Backend.Presenters.ExceptionHandlers;
 global using NorthWind.Sales.Backend.Presenters.ExceptionHandlers.Resources;
 global using System.Text.Json;
+global using NorthWind.Sales.Backend.Presenters.Extensions;

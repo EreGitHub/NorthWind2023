@@ -1,5 +1,5 @@
 ﻿<EditForm Model="Order" OnInvalidSubmit="Order.Send">
-    <ModelValidator Validator="Order.Validator" />
+    <ModelValidator Validator="Order.Validator" @ref=Order.ModelValidator />
     <ValidationSummary />
     <div class="form-group">
         <label for="customerId">

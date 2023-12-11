@@ -14,6 +14,7 @@ public class CreateOrderViewModel
     public string ShipPostalCode { get; set; }
     public List<CreateOrderDetailViewModel> OrderDetails { get; set; } = new();
     public IModelValidator<CreateOrderViewModel> Validator { get; set; }
+    public ModelValidator<CreateOrderViewModel> ModelValidator { get; set; }
     public string InformationMessage { get; private set; }
 
     public void AddNewOrderDetailItem()
@@ -24,8 +25,23 @@ public class CreateOrderViewModel
     public async Task Send()
     {
         InformationMessage = string.Empty;
-        var orderId = await Gateway.CreateOrderAsync((CreateOrderDto)this);
-        InformationMessage = string.Format(CreateOrderMessages.CreateOrderTemplate, orderId);
+        try
+        {
+            var orderId = await Gateway.CreateOrderAsync((CreateOrderDto)this);
+            InformationMessage = string.Format(CreateOrderMessages.CreateOrderTemplate, orderId);
+        }
+        catch (HttpRequestException ex)
+        {
+            if (ex.Data.Contains("Errors"))
+            {
+                IEnumerable<ValidationError> Errors = ex.Data["Errors"] as IEnumerable<ValidationError>;
+                ModelValidator.AddErrors(Errors);
+            }
+            else
+            {
+                throw;
+            }
+        }
     }
 
     public static explicit operator CreateOrderDto(CreateOrderViewModel model) =>
