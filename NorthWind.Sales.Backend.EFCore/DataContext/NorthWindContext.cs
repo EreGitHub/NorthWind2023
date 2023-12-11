@@ -11,6 +11,7 @@ internal class NorthWindContext : DbContext
         //Update-Database -p NorthWind.Sales.Backend.EFCore -s NorthWind.Sales.Backend.EFCore -context NorthWindContext
         //dotnet ef database update -p NorthWind.Sales.Backend.EFCore -s NorthWind.Sales.Backend.EFCore -c NorthWindContext
         optionsBuilder.UseSqlServer("Data Source=.,15000;Initial Catalog=NorthWinDB2023;User ID=sa;Password=Control123+;TrustServerCertificate=true");
+        //Server=localhost;Database=NorthWindDB;User=USER;Password=PASSWORD;TrustServerCertificate=true
     }
 
     public DbSet<Order> Orders { get; set; }
