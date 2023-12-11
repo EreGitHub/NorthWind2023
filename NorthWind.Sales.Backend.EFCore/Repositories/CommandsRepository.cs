@@ -21,6 +21,18 @@ internal class CommandsRepository : ICommandsRepository
 
     public async ValueTask SaveChanges()
     {
-        await Context.SaveChangesAsync();
+        try
+        {
+            await Context.SaveChangesAsync();
+        }
+        catch (DbUpdateException ex)
+        {
+            throw new UnitOfWorkException(ex,
+                ex.Entries.Select(entry => entry.Entity.GetType().Name));
+        }
+        catch (Exception)
+        {
+            throw;
+        }
     }
 }

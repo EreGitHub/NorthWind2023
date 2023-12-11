@@ -23,6 +23,8 @@ public static class Startup
 
     public static WebApplication ConfigureWebApplication(this WebApplication app)
     {
+        app.UseCustomExceptionHandlers();
+
         if (app.Environment.IsDevelopment())
         {
             app.UseSwagger();

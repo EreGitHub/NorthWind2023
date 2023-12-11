@@ -16,18 +16,15 @@ internal class CreateOrderInteractor : ICreateOrderInputPort
     public async ValueTask Handle(CreateOrderDto orderDto)
     {
         //preguntar: esto se tiene que hacer en cada interactor?
-        using var Enumerator = Validators.GetEnumerator();
+        //using var Enumerator = Validators.GetEnumerator();
+        var Enumerator = Validators.GetEnumerator();
         bool IsValid = true;
         while (IsValid && Enumerator.MoveNext())
         {
             IsValid = await Enumerator.Current.Validate(orderDto);
             if (!IsValid)
             {
-                string Errors = string.Join(" ",
-                    Enumerator.Current.Errors
-                        .Select(error => $"{error.PropertyName}: {error.Message}"));
-
-                throw new Exception(Errors);
+                throw new ValidationException(Enumerator.Current.Errors);
             }
         }
 

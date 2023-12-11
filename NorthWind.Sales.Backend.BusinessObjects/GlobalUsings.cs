@@ -3,3 +3,5 @@ global using NorthWind.Sales.Backend.BusinessObjects.POCOEntities;
 global using NorthWind.Sales.Backend.BusinessObjects.ValueObjects;
 global using NorthWind.sales.Entities.Dtos;
 global using NorthWind.Sales.Backend.BusinessObjects.Aggregates;
+global using NorthWind.sales.Entities.ValueObject;
+global using Microsoft.AspNetCore.Mvc;

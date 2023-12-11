@@ -1,3 +1,13 @@
-global using NorthWind.Sales.Backend.BusinessObjects.Aggregates;
-global using NorthWind.Sales.Backend.BusinessObjects.Interfaces.CreateOrder;
+global using Microsoft.AspNetCore.Builder;
+global using Microsoft.AspNetCore.Diagnostics;
+global using Microsoft.AspNetCore.Http;
+global using Microsoft.AspNetCore.Mvc;
 global using Microsoft.Extensions.DependencyInjection;
+global using Microsoft.Extensions.Logging;
+global using NorthWind.Sales.Backend.BusinessObjects.Aggregates;
+global using NorthWind.Sales.Backend.BusinessObjects.Exceptions;
+global using NorthWind.Sales.Backend.BusinessObjects.Interfaces.Common;
+global using NorthWind.Sales.Backend.BusinessObjects.Interfaces.CreateOrder;
+global using NorthWind.Sales.Backend.Presenters.ExceptionHandlers;
+global using NorthWind.Sales.Backend.Presenters.ExceptionHandlers.Resources;
+global using System.Text.Json;
