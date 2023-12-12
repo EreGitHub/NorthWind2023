@@ -1,23 +1,17 @@
 ﻿namespace NorthWind.Sales.Backend.UseCases.CreateOrder;
 
-internal class CreateOrderInteractor : ICreateOrderInputPort
+internal class CreateOrderInteractor(
+    ICreateOrderOutputPort outputPort,
+    ICommandsRepository repository,
+    IEnumerable<IModelValidator<CreateOrderDto>> validators
+    //IDomainEventHub<SpecialOrderCreatedEvent> domainEventHub
+    ) : ICreateOrderInputPort
 {
-    readonly ICreateOrderOutputPort OutputPort;
-    readonly ICommandsRepository Repository;
-    readonly IEnumerable<IModelValidator<CreateOrderDto>> Validators;
-
-    public CreateOrderInteractor(ICreateOrderOutputPort outputPort, ICommandsRepository repository, IEnumerable<IModelValidator<CreateOrderDto>> validators)
-    {
-        OutputPort = outputPort;
-        Repository = repository;
-        Validators = validators;
-    }
-
     public async ValueTask Handle(CreateOrderDto orderDto)
     {
         //preguntar: esto se tiene que hacer en cada interactor?
         //using var Enumerator = Validators.GetEnumerator();
-        var Enumerator = Validators.GetEnumerator();
+        var Enumerator = validators.GetEnumerator();
         bool IsValid = true;
         while (IsValid && Enumerator.MoveNext())
         {
@@ -30,8 +24,12 @@ internal class CreateOrderInteractor : ICreateOrderInputPort
 
         OrderAggreate Order = OrderAggreate.From(orderDto);
 
-        await Repository.CreateOrder(Order);
-        await Repository.SaveChanges();
-        await OutputPort.Handle(Order);
+        await repository.CreateOrder(Order);
+        await repository.SaveChanges();
+        await outputPort.Handle(Order);
+
+        //if (Order.OrderDetails.Count > 3)
+        //    await domainEventHub.Raise(
+        //        new SpecialOrderCreatedEvent(Order.Id, Order.OrderDetails.Count));
     }
 }

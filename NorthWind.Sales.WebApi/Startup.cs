@@ -6,8 +6,11 @@ public static class Startup
     {
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddSwaggerGen();
-        builder.Services.AddNorthWindSalesServices(dbOptions =>
-            builder.Configuration.GetSection(DBOptions.SectionKey).Bind(dbOptions));
+        builder.Services.AddNorthWindSalesServices(
+            dbOptions =>
+                builder.Configuration.GetSection(DBOptions.SectionKey).Bind(dbOptions),
+            smtpOptions =>
+                builder.Configuration.GetSection(SmtpOptions.SectionKey).Bind(smtpOptions));
         builder.Services.AddCors(options =>
         {
             options.AddDefaultPolicy(config =>

@@ -1,14 +1,16 @@
 ﻿namespace Microsoft.Extensions.DependencyInjection;
-//namespace modificado Microsoft.Extensions.DependencyInjection;
 
 public static class DependencyContainer
 {
-    public static IServiceCollection AddNorthWindSalesServices(this IServiceCollection services, Action<DBOptions> configureOptions)
+    public static IServiceCollection AddNorthWindSalesServices
+        (this IServiceCollection services, Action<DBOptions> configureOptions, Action<SmtpOptions> configureSmtpOptions)
     {
         services.AddValidators()
+            .AddBusinessObjectsServices()
             .AddUseCasesServices()
-            .AddRespositories(configureOptions)
-            .AddPresenters();
+            .AddRespositories(configureOptions)!
+            .AddPresenters()
+            .AddMailServices(configureSmtpOptions);
 
         return services;
     }

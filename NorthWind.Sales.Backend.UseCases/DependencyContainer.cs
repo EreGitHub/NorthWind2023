@@ -6,6 +6,7 @@ public static class DependencyContainer
     {
         services.AddScoped<ICreateOrderInputPort, CreateOrderInteractor>();
         services.AddScoped<IModelValidator<CreateOrderDto>, CreateOrderDBValidator>();
+        services.AddScoped<IDomainEventHandler<SpecialOrderCreatedEvent>, SendEmailWhenSpecialOrderCreatedEventHandler>();
 
         return services;
     }
