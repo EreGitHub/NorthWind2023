@@ -1,6 +1,6 @@
-﻿namespace NothWind.Sales.Backend.SmtpGateways;
+﻿namespace NorthWind.Sales.Backend.SmptGateways;
 
-internal class MailService(IOptions<SmtpOptions> smtpOptions, Logger<MailService> logger)
+internal class MailService(IOptions<SmtpOptions> smtpOptions, ILogger<MailService> logger)
     : IMailService
 {
     public async ValueTask SendEmailToAdministrator(string subject, string body)

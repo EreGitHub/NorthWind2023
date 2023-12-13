@@ -1,4 +1,3 @@
-global using Microsoft.Extensions.DependencyInjection;
 global using NorthWind.sales.Entities.Dtos;
 global using NorthWind.sales.Entities.Interfaces.Common;
 global using NorthWind.sales.Entities.ValueObject;

@@ -23,7 +23,7 @@ internal class ExceptionDelegatingHandler : DelegatingHandler
                     out JsonElement InstanceValue))
                 {
                     string Value = InstanceValue.ToString();
-                    if (Value.ToLower().StartsWith("problemdeatils/"))
+                    if (Value.ToLower().StartsWith("problemdetails/"))
                     {
                         Source = Value;
                         if (TryGetProperty(JsonResponse, "title", out var TitleValue))
@@ -35,7 +35,6 @@ internal class ExceptionDelegatingHandler : DelegatingHandler
                         {
                             Message = $"{Message} {DetailValue}";
                         }
-
                         if (TryGetProperty(JsonResponse, "errors", out JsonElement ErrorsValue))
                         {
                             Errors = JsonSerializer.Deserialize<IEnumerable<ValidationError>>(ErrorsValue);

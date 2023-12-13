@@ -9,9 +9,9 @@
     <ProjectReference Include="..\NorthWind.Sales.Backend.Controllers\NorthWind.Sales.Backend.Controllers.csproj" />
     <ProjectReference Include="..\NorthWind.Sales.Backend.EFCore\NorthWind.Sales.Backend.EFCore.csproj" />
     <ProjectReference Include="..\NorthWind.Sales.Backend.Presenters\NorthWind.Sales.Backend.Presenters.csproj" />
+    <ProjectReference Include="..\NorthWind.Sales.Backend.SmptGateways\NorthWind.Sales.Backend.SmptGateways.csproj" />
     <ProjectReference Include="..\NorthWind.Sales.Backend.UseCases\NorthWind.Sales.Backend.UseCases.csproj" />
     <ProjectReference Include="..\NorthWind.Sales.Entities.Validators\NorthWind.Sales.Entities.Validators.csproj" />
-    <ProjectReference Include="..\NothWind.Sales.Backend.SmtpGateways\NothWind.Sales.Backend.SmtpGateways.csproj" />
   </ItemGroup>
 
 </Project>

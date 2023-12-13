@@ -8,8 +8,8 @@ internal class CreateOrderGateway : ICreateOrderGateway
 
     public async Task<int> CreateOrderAsync(CreateOrderDto order)
     {
-        var response = await Client.PostAsJsonAsync(Endpoints.CreateOrder, order);
+        var Response = await Client.PostAsJsonAsync(Endpoints.CreateOrder, order);
 
-        return await response.Content.ReadFromJsonAsync<int>();
+        return await Response.Content.ReadFromJsonAsync<int>();
     }
 }

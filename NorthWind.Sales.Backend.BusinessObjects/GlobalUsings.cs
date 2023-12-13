@@ -1,5 +1,4 @@
 global using Microsoft.AspNetCore.Mvc;
-global using Microsoft.Extensions.DependencyInjection;
 global using NorthWind.sales.Entities.Dtos;
 global using NorthWind.sales.Entities.ValueObject;
 global using NorthWind.Sales.Backend.BusinessObjects.Aggregates;

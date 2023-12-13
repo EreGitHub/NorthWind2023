@@ -59,7 +59,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NorthWind.Sales.Entities.Va
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "EmailGateways", "EmailGateways", "{BDAECF7F-1C3A-4E79-8930-68714D997CEB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NothWind.Sales.Backend.SmtpGateways", "NothWind.Sales.Backend.SmtpGateways\NothWind.Sales.Backend.SmtpGateways.csproj", "{4544A59F-16C2-40B7-AB61-DF6A64506131}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NorthWind.Sales.Backend.SmptGateways", "NorthWind.Sales.Backend.SmptGateways\NorthWind.Sales.Backend.SmptGateways.csproj", "{F802CD24-6C5B-4726-8C12-8BDF0546D79F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -127,10 +127,10 @@ Global
 		{C36A3379-303E-450E-8F3B-895BC7211130}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C36A3379-303E-450E-8F3B-895BC7211130}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C36A3379-303E-450E-8F3B-895BC7211130}.Release|Any CPU.Build.0 = Release|Any CPU
-		{4544A59F-16C2-40B7-AB61-DF6A64506131}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4544A59F-16C2-40B7-AB61-DF6A64506131}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4544A59F-16C2-40B7-AB61-DF6A64506131}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4544A59F-16C2-40B7-AB61-DF6A64506131}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F802CD24-6C5B-4726-8C12-8BDF0546D79F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F802CD24-6C5B-4726-8C12-8BDF0546D79F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F802CD24-6C5B-4726-8C12-8BDF0546D79F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F802CD24-6C5B-4726-8C12-8BDF0546D79F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -159,7 +159,7 @@ Global
 		{A0CA490C-6C58-4E22-9653-4FC1AF8C7DA6} = {CA35FD32-AB9A-4E0F-B3CA-C26331178622}
 		{C36A3379-303E-450E-8F3B-895BC7211130} = {7424261C-FAAA-4696-B5CC-14C0056CE360}
 		{BDAECF7F-1C3A-4E79-8930-68714D997CEB} = {3CA9CFFD-A09B-4C0D-BEAA-913A4F797F76}
-		{4544A59F-16C2-40B7-AB61-DF6A64506131} = {BDAECF7F-1C3A-4E79-8930-68714D997CEB}
+		{F802CD24-6C5B-4726-8C12-8BDF0546D79F} = {BDAECF7F-1C3A-4E79-8930-68714D997CEB}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6ED95F09-51C5-4FFD-81DE-46C3B8F3BD27}

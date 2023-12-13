@@ -1,4 +1,4 @@
-﻿<EditForm Model="Order" OnInvalidSubmit="Order.Send">
+﻿<EditForm Model="Order" OnValidSubmit="Order.Send">
     <ModelValidator Validator="Order.Validator" @ref=Order.ModelValidator />
     <ValidationSummary />
     <div class="form-group">
@@ -90,8 +90,7 @@
             </button>
         </div>
         <div class="col">
-            <button class="btn btn-primary"
-                    @onclick=Order.Send>
+            <button class="btn btn-primary">
                 @CreateOrderMessages.SentButtonText
             </button>
         </div>

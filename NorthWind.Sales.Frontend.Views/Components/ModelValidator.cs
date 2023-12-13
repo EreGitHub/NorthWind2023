@@ -12,7 +12,7 @@ public class ModelValidator<T> : ComponentBase
 
     FieldIdentifier GetFieldIdentifier(object model, string propertyName)
     {
-        char[] PropertyNameSeparators = new char[] { '.', '[' };
+        char[] PropertyNameSeparators = new[] { '.', '[' };
 
         object NewModel = model;
 
@@ -107,7 +107,6 @@ public class ModelValidator<T> : ComponentBase
             var FieldIdentifier = GetFieldIdentifier(EditContext.Model, Error.PropertyName);
             ValidationMessageStore.Add(FieldIdentifier, Error.Message);
         }
-
 
         EditContext.NotifyValidationStateChanged();
     }

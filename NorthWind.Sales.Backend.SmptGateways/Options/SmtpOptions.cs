@@ -1,4 +1,4 @@
-﻿namespace NothWind.Sales.Backend.SmtpGateways.Options;
+﻿namespace NorthWind.Sales.Backend.SmptGateways.Options;
 
 public class SmtpOptions
 {

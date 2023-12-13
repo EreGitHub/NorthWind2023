@@ -1,4 +1,4 @@
-﻿namespace NorthWind.Sales.Backend.UseCases;
+﻿namespace Microsoft.Extensions.DependencyInjection;
 
 public static class DependencyContainer
 {

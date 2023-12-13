@@ -3,7 +3,6 @@
 public class CreateOrderViewModel
 {
     readonly ICreateOrderGateway Gateway;
-
     public CreateOrderViewModel(ICreateOrderGateway gateway, IModelValidator<CreateOrderViewModel> validator) =>
         (Gateway, Validator) = (gateway, validator);
 
@@ -16,7 +15,6 @@ public class CreateOrderViewModel
     public IModelValidator<CreateOrderViewModel> Validator { get; set; }
     public ModelValidator<CreateOrderViewModel> ModelValidator { get; set; }
     public string InformationMessage { get; private set; }
-
     public void AddNewOrderDetailItem()
     {
         OrderDetails.Add(new CreateOrderDetailViewModel());
@@ -27,8 +25,8 @@ public class CreateOrderViewModel
         InformationMessage = string.Empty;
         try
         {
-            var orderId = await Gateway.CreateOrderAsync((CreateOrderDto)this);
-            InformationMessage = string.Format(CreateOrderMessages.CreateOrderTemplate, orderId);
+            var OrderId = await Gateway.CreateOrderAsync((CreateOrderDto)this);
+            InformationMessage = string.Format(CreateOrderMessages.CreateOrderTemplate, OrderId);
         }
         catch (HttpRequestException ex)
         {

@@ -8,7 +8,7 @@ internal class UnitOfWorkExceptionHandler : IExceptionHandler<UnitOfWorkExceptio
 
     public ProblemDetails Handle(UnitOfWorkException exception)
     {
-        ProblemDetails Details = new ProblemDetails();
+        ProblemDetails Details = new();
 
         Details.Status = StatusCodes.Status500InternalServerError;
         Details.Type = "https://datatracker.ietf.org/doc/html/rfc7231#section-6.6.1";

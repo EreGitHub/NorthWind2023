@@ -4,7 +4,6 @@ internal class ExceptionHandlerOrchestrator : IExceptionHandler
 {
     readonly Dictionary<Type, object> Handlers;
 
-
     public ExceptionHandlerOrchestrator(
         [FromKeyedServices(typeof(IExceptionHandler<>))] IEnumerable<object> handlers)
     {
@@ -23,20 +22,19 @@ internal class ExceptionHandlerOrchestrator : IExceptionHandler
 
     public async ValueTask<bool> TryHandleAsync(HttpContext httpContext, Exception exception, CancellationToken cancellationToken)
     {
-        bool Handle = false;
+        bool Handled = false;
 
         if (Handlers.TryGetValue(exception.GetType(), out object Handler))
         {
             Type HandlerType = Handler.GetType();
-
             ProblemDetails Details = (ProblemDetails)HandlerType
-                 .GetMethod(nameof(IExceptionHandler<Exception>.Handle))
-                 .Invoke(Handler, new object[] { exception });
+                .GetMethod(nameof(IExceptionHandler<Exception>.Handle))
+                .Invoke(Handler, new object[] { exception });
 
             await httpContext.WriteProblemDetails(Details);
-            Handle = true;
+            Handled = true;
         }
 
-        return Handle;
+        return Handled;
     }
 }
