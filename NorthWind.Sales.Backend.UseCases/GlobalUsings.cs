@@ -6,6 +6,7 @@ global using NorthWind.Sales.Backend.BusinessObjects.Exceptions;
 global using NorthWind.Sales.Backend.BusinessObjects.Interfaces.Common;
 global using NorthWind.Sales.Backend.BusinessObjects.Interfaces.CreateOrder;
 global using NorthWind.Sales.Backend.BusinessObjects.Interfaces.Events;
+global using NorthWind.Sales.Backend.BusinessObjects.Interfaces.Logging;
 global using NorthWind.Sales.Backend.BusinessObjects.Interfaces.Repositories;
 global using NorthWind.Sales.Backend.BusinessObjects.ValueObjects;
 global using NorthWind.Sales.Backend.UseCases.CreateOrder;

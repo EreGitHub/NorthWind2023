@@ -1,8 +1,9 @@
 ﻿namespace NorthWind.Sales.Backend.UseCases.CreateOrder;
 
 internal class CreateOrderInteractor(
-    ICreateOrderOutputPort outputPort,
+    IDomainLogger domainLogger,
     ICommandsRepository repository,
+    ICreateOrderOutputPort outputPort,
     IEnumerable<IModelValidator<CreateOrderDto>> validators,
     IDomainEventHub<SpecialOrderCreatedEvent> domainEventHub) : ICreateOrderInputPort
 {
@@ -12,19 +13,24 @@ internal class CreateOrderInteractor(
         //using var Enumerator = Validators.GetEnumerator();
         var Enumerator = validators.GetEnumerator();
         bool IsValid = true;
+
         while (IsValid && Enumerator.MoveNext())
-        {
             IsValid = await Enumerator.Current.Validate(orderDto);
-            if (!IsValid)
-            {
-                throw new ValidationException(Enumerator.Current.Errors);
-            }
-        }
+
+        if (!IsValid)
+            throw new ValidationException(Enumerator.Current.Errors);
+
+        await domainLogger.LogInformation(new DomainLog(
+             CreateOrderMessages.StartingPurchaseOrderCreation));
 
         OrderAggreate Order = OrderAggreate.From(orderDto);
 
         await repository.CreateOrder(Order);
         await repository.SaveChanges();
+
+        await domainLogger.LogInformation(
+             new DomainLog(string.Format(CreateOrderMessages.PurchaseOrderCreatedTemplate, Order.Id)));
+
         await outputPort.Handle(Order);
 
         if (Order.OrderDetails.Count > 3)
