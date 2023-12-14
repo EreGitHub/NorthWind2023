@@ -1,9 +1,12 @@
-﻿namespace NorthWind.Sales.Backend.UseCases.CreateOrder;
+﻿using NorthWind.Sales.Backend.BusinessObjects.Interfaces.Transactions;
+
+namespace NorthWind.Sales.Backend.UseCases.CreateOrder;
 
 internal class CreateOrderInteractor(
     IDomainLogger domainLogger,
     ICommandsRepository repository,
     ICreateOrderOutputPort outputPort,
+    IDomainTransaction domainTransaction,
     IEnumerable<IModelValidator<CreateOrderDto>> validators,
     IDomainEventHub<SpecialOrderCreatedEvent> domainEventHub) : ICreateOrderInputPort
 {
@@ -25,16 +28,31 @@ internal class CreateOrderInteractor(
 
         OrderAggreate Order = OrderAggreate.From(orderDto);
 
-        await repository.CreateOrder(Order);
-        await repository.SaveChanges();
+        try
+        {
+            domainTransaction.BeginTransaction();
 
-        await domainLogger.LogInformation(
-             new DomainLog(string.Format(CreateOrderMessages.PurchaseOrderCreatedTemplate, Order.Id)));
+            await repository.CreateOrder(Order);
+            await repository.SaveChanges();
 
-        await outputPort.Handle(Order);
+            await domainLogger.LogInformation(
+                 new DomainLog(string.Format(CreateOrderMessages.PurchaseOrderCreatedTemplate, Order.Id)));
 
-        if (Order.OrderDetails.Count > 3)
-            await domainEventHub.Raise(
-                new SpecialOrderCreatedEvent(Order.Id, Order.OrderDetails.Count));
+            await outputPort.Handle(Order);
+
+            if (Order.OrderDetails.Count > 3)
+                await domainEventHub.Raise(
+                    new SpecialOrderCreatedEvent(Order.Id, Order.OrderDetails.Count));
+
+            domainTransaction.CommitTransaction();
+        }
+        catch
+        {
+            domainTransaction.RollbackTransaction();
+
+            string Information = string.Format(CreateOrderMessages.OrderCreationCancelledTemplate, Order.Id);
+
+            await domainLogger.LogInformation(new DomainLog(Information));
+        }
     }
 }
