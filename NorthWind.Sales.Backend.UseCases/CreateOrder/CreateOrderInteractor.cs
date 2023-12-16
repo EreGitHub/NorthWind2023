@@ -1,18 +1,37 @@
-﻿using NorthWind.Sales.Backend.BusinessObjects.Interfaces.Transactions;
+﻿namespace NorthWind.Sales.Backend.UseCases.CreateOrder;
 
-namespace NorthWind.Sales.Backend.UseCases.CreateOrder;
+internal class CreateOrderInteractor : ICreateOrderInputPort
+{
+    private readonly IUserService userService;
+    private readonly IDomainLogger domainLogger;
+    private readonly ICommandsRepository repository;
+    private readonly ICreateOrderOutputPort outputPort;
+    private readonly IDomainTransaction domainTransaction;
+    private readonly IEnumerable<IModelValidator<CreateOrderDto>> validators;
+    private readonly IDomainEventHub<SpecialOrderCreatedEvent> domainEventHub;
 
-internal class CreateOrderInteractor(
+    public CreateOrderInteractor(
+    IUserService userService,
     IDomainLogger domainLogger,
     ICommandsRepository repository,
     ICreateOrderOutputPort outputPort,
     IDomainTransaction domainTransaction,
     IEnumerable<IModelValidator<CreateOrderDto>> validators,
-    IDomainEventHub<SpecialOrderCreatedEvent> domainEventHub) : ICreateOrderInputPort
-{
+    IDomainEventHub<SpecialOrderCreatedEvent> domainEventHub)
+    {
+        this.userService = userService;
+        this.domainLogger = domainLogger;
+        this.repository = repository;
+        this.outputPort = outputPort;
+        this.domainTransaction = domainTransaction;
+        this.validators = validators;
+        this.domainEventHub = domainEventHub;
+    }
     public async ValueTask Handle(CreateOrderDto orderDto)
     {
-        //preguntar: esto se tiene que hacer en cada interactor?
+        if (!userService.IsAuthenticate)
+            throw new UnauthorizedAccessException();
+
         //using var Enumerator = Validators.GetEnumerator();
         var Enumerator = validators.GetEnumerator();
         bool IsValid = true;
@@ -24,35 +43,38 @@ internal class CreateOrderInteractor(
             throw new ValidationException(Enumerator.Current.Errors);
 
         await domainLogger.LogInformation(new DomainLog(
-             CreateOrderMessages.StartingPurchaseOrderCreation));
+             CreateOrderMessages.StartingPurchaseOrderCreation,
+             userService.UserName));
 
-        OrderAggreate Order = OrderAggreate.From(orderDto);
+        OrderAggregate Order = OrderAggregate.From(orderDto);
 
         try
         {
-            domainTransaction.BeginTransaction();
+            //domainTransaction.BeginTransaction();
 
             await repository.CreateOrder(Order);
             await repository.SaveChanges();
 
             await domainLogger.LogInformation(
-                 new DomainLog(string.Format(CreateOrderMessages.PurchaseOrderCreatedTemplate, Order.Id)));
+                 new DomainLog(string.Format(CreateOrderMessages.PurchaseOrderCreatedTemplate, Order.Id),
+                 userService.UserName));
 
             await outputPort.Handle(Order);
 
-            if (Order.OrderDetails.Count > 3)
+            if (new SpecialOrderSpecification().IsSatisfiedBy(Order))
                 await domainEventHub.Raise(
                     new SpecialOrderCreatedEvent(Order.Id, Order.OrderDetails.Count));
 
-            domainTransaction.CommitTransaction();
+            //domainTransaction.CommitTransaction();
         }
         catch
         {
-            domainTransaction.RollbackTransaction();
+            //domainTransaction.RollbackTransaction();
 
             string Information = string.Format(CreateOrderMessages.OrderCreationCancelledTemplate, Order.Id);
 
-            await domainLogger.LogInformation(new DomainLog(Information));
+            await domainLogger.LogInformation(new DomainLog(Information, userService.UserName));
+            throw;
         }
     }
 }

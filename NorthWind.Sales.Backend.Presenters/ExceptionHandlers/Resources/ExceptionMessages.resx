@@ -117,6 +117,12 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="UnauthorizedAccessExceptionDetail" xml:space="preserve">
+    <value>El acceso al recurso solicitado esta restringido a usuarios autorizados.</value>
+  </data>
+  <data name="UnauthorizedAccessExceptionTitle" xml:space="preserve">
+    <value>Acceso no autorizado.</value>
+  </data>
   <data name="UnhandledExceptionDetail" xml:space="preserve">
     <value>Consulte al administrador.</value>
   </data>

@@ -25,6 +25,7 @@ internal class MailService(IOptions<SmtpOptions> smtpOptions, ILogger<MailServic
         catch (Exception ex)
         {
             logger.LogError(ex, ex.Message);
+            throw;
         }
     }
 }

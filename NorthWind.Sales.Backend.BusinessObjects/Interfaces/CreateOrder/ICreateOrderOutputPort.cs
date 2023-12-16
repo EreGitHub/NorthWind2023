@@ -3,5 +3,5 @@
 public interface ICreateOrderOutputPort
 {
     int OrderId { get; }
-    ValueTask Handle(OrderAggreate addedOrder);
+    ValueTask Handle(OrderAggregate addedOrder);
 }

@@ -2,5 +2,5 @@
 
 public interface ICommandsRepository : IUnitOfWork
 {
-    ValueTask CreateOrder(OrderAggreate order);
+    ValueTask CreateOrder(OrderAggregate order);
 }

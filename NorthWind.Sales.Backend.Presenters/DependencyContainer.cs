@@ -7,6 +7,7 @@ public static class DependencyContainer
         services.AddScoped<ICreateOrderOutputPort, CreateOrderPresenter>();
         services.AddKeyedSingleton<object, ValidationExceptionHandler>(typeof(IExceptionHandler<>));
         services.AddKeyedSingleton<object, UnitOfWorkExceptionHandler>(typeof(IExceptionHandler<>));
+        services.AddKeyedSingleton<object, UnauthorizedAccessExceptionHandler>(typeof(IExceptionHandler<>));
         services.AddExceptionHandler<ExceptionHandlerOrchestrator>();
         services.AddExceptionHandler<UnhandledExceptionHandler>();
 

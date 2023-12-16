@@ -8,6 +8,7 @@ internal class DomainLogsRepository(NorthWindDomainLogsContext context) : IDomai
         {
             CreatedDate = log.DateTime,
             Information = log.Information,
+            UserName = log.UserName
         });
     }
 

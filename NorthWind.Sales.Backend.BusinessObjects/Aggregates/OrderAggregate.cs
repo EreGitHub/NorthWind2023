@@ -1,6 +1,6 @@
 ﻿namespace NorthWind.Sales.Backend.BusinessObjects.Aggregates;
 
-public class OrderAggreate : Order
+public class OrderAggregate : Order
 {
     readonly List<OrderDetail> OrderDetailsField = new List<OrderDetail>();
 
@@ -18,9 +18,9 @@ public class OrderAggreate : Order
         OrderDetailsField.Add(new(productId, unitPrice, quantity));
     }
 
-    public static OrderAggreate From(CreateOrderDto orderDto)
+    public static OrderAggregate From(CreateOrderDto orderDto)
     {
-        OrderAggreate Order = new OrderAggreate
+        OrderAggregate Order = new OrderAggregate
         {
             CustomerId = orderDto.CustomerId,
             ShipAddress = orderDto.ShipAddress,

@@ -6,7 +6,7 @@ internal class CommandsRepository : ICommandsRepository
 
     public CommandsRepository(NorthWindSalesContext context) => Context = context;
 
-    public async ValueTask CreateOrder(OrderAggreate order)
+    public async ValueTask CreateOrder(OrderAggregate order)
     {
         await Context.AddAsync(order);
         await Context.AddRangeAsync(

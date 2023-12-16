@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using NorthWind.Sales.Backend.EFCore.DataContext;
 
@@ -11,9 +12,11 @@ using NorthWind.Sales.Backend.EFCore.DataContext;
 namespace NorthWind.Sales.Backend.EFCore.Migrations.NorthWindDomainLogs
 {
     [DbContext(typeof(NorthWindDomainLogsContext))]
-    partial class NorthWindDomainLogsContextModelSnapshot : ModelSnapshot
+    [Migration("20231216132732_addUserNAmeToDomainLog")]
+    partial class addUserNAmeToDomainLog
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

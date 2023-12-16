@@ -61,6 +61,24 @@ namespace NorthWind.Sales.Backend.Presenters.ExceptionHandlers.Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a El acceso al recurso solicitado esta restringido a usuarios autorizados..
+        /// </summary>
+        internal static string UnauthorizedAccessExceptionDetail {
+            get {
+                return ResourceManager.GetString("UnauthorizedAccessExceptionDetail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Acceso no autorizado..
+        /// </summary>
+        internal static string UnauthorizedAccessExceptionTitle {
+            get {
+                return ResourceManager.GetString("UnauthorizedAccessExceptionTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Consulte al administrador..
         /// </summary>
         internal static string UnhandledExceptionDetail {

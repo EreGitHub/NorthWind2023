@@ -1,6 +1,6 @@
 ﻿namespace NorthWind.Sales.Backend.BusinessObjects.Services;
 
-internal class DomainTransaction : IDomainTransaction
+internal class DomainRelationalTransaction : IDomainTransaction
 {
     TransactionScope TransactionScope;
     public void BeginTransaction()
