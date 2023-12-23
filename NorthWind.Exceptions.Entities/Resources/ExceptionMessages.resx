@@ -117,22 +117,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="UnauthorizedAccessExceptionDetail" xml:space="preserve">
-    <value>El acceso al recurso solicitado esta restringido a usuarios autorizados.</value>
+  <data name="UnhandledExceptionDetails" xml:space="preserve">
+    <value>Consulte al administrador.</value>
   </data>
-  <data name="UnauthorizedAccessExceptionTitle" xml:space="preserve">
-    <value>Acceso no autorizado.</value>
-  </data>
-  <data name="UnitOfWorkExceptionDetail" xml:space="preserve">
-    <value>Se encontraron uno o mas errores de actualizacion de datos. Consulte al administrador.</value>
-  </data>
-  <data name="UnitOfWorkExceptionTitle" xml:space="preserve">
-    <value>Error de actualizacion</value>
-  </data>
-  <data name="ValidationExceptionDetail" xml:space="preserve">
-    <value>Se encontraron uno o mas errores de validacion de datos.</value>
-  </data>
-  <data name="ValidationExceptionTitle" xml:space="preserve">
-    <value>Error en los datos de entrada.</value>
+  <data name="UnhandledExceptionTitle" xml:space="preserve">
+    <value>El servicio no se encuntra disponible.</value>
   </data>
 </root>

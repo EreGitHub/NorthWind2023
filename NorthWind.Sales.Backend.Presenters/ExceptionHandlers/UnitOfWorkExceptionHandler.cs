@@ -1,4 +1,6 @@
-﻿namespace NorthWind.Sales.Backend.Presenters.ExceptionHandlers;
+﻿using NorthWind.Exceptions.Entities.Interfaces;
+
+namespace NorthWind.Sales.Backend.Presenters.ExceptionHandlers;
 
 internal class UnitOfWorkExceptionHandler : IExceptionHandler<UnitOfWorkException>
 {

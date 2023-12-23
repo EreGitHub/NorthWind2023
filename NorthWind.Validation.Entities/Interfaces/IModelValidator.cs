@@ -1,4 +1,4 @@
-﻿namespace NorthWind.sales.Entities.Interfaces.Common;
+﻿namespace NorthWind.Validation.Entities.Interfaces;
 
 public interface IModelValidator<T>
 {

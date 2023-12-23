@@ -1,4 +1,4 @@
-﻿namespace NorthWind.Sales.Backend.Presenters.ExceptionHandlers;
+﻿namespace NorthWind.Exceptions.Entities.ExceptionHandlers;
 
 internal class ExceptionHandlerOrchestrator : IExceptionHandler
 {

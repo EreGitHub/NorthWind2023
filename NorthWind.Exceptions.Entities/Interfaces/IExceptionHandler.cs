@@ -1,4 +1,4 @@
-﻿namespace NorthWind.Sales.Backend.BusinessObjects.Interfaces.Common;
+﻿namespace NorthWind.Exceptions.Entities.Interfaces;
 
 public interface IExceptionHandler<T> where T : Exception
 {

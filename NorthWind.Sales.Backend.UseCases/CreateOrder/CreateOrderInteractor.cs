@@ -29,7 +29,7 @@ internal class CreateOrderInteractor : ICreateOrderInputPort
     }
     public async ValueTask Handle(CreateOrderDto orderDto)
     {
-        if (!userService.IsAuthenticate)
+        if (!userService.IsAuthenticated)
             throw new UnauthorizedAccessException();
 
         //using var Enumerator = Validators.GetEnumerator();

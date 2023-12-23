@@ -1,6 +1,6 @@
-﻿namespace NorthWind.sales.Entities.Validators.Common;
+﻿namespace NorthWind.Validation.Entities.Abstractions;
 
-internal abstract class ValidatorBase<T> : AbstractValidator<T>, IModelValidator<T>
+public abstract class ValidatorBase<T> : AbstractValidator<T>, IModelValidator<T>
 {
     public IEnumerable<ValidationError> Errors { get; private set; }
 

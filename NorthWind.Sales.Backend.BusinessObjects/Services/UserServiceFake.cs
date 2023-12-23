@@ -2,7 +2,7 @@
 
 internal class UserServiceFake : IUserService
 {
-    public bool IsAuthenticate => true;
+    public bool IsAuthenticated => true;
 
     public string UserName => "User@nothwind.com";
 

@@ -5,11 +5,11 @@ public static class DependencyContainer
     public static IServiceCollection AddPresenters(this IServiceCollection services)
     {
         services.AddScoped<ICreateOrderOutputPort, CreateOrderPresenter>();
-        services.AddKeyedSingleton<object, ValidationExceptionHandler>(typeof(IExceptionHandler<>));
-        services.AddKeyedSingleton<object, UnitOfWorkExceptionHandler>(typeof(IExceptionHandler<>));
-        services.AddKeyedSingleton<object, UnauthorizedAccessExceptionHandler>(typeof(IExceptionHandler<>));
-        services.AddExceptionHandler<ExceptionHandlerOrchestrator>();
-        services.AddExceptionHandler<UnhandledExceptionHandler>();
+        services.AddCustomExceptionHandler<ValidationException, ValidationExceptionHandler>();
+        services.AddCustomExceptionHandler<UnitOfWorkException, UnitOfWorkExceptionHandler>();
+        services.AddCustomExceptionHandler<UnauthorizedAccessException, UnauthorizedAccessExceptionHandler>();
+
+        services.AddUnhandledExceptionHandler();
 
         return services;
     }

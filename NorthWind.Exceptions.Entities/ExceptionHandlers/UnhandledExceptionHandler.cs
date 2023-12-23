@@ -1,4 +1,4 @@
-﻿namespace NorthWind.Sales.Backend.Presenters.ExceptionHandlers;
+﻿namespace NorthWind.Exceptions.Entities.ExceptionHandlers;
 
 internal class UnhandledExceptionHandler : IExceptionHandler
 {
@@ -13,7 +13,7 @@ internal class UnhandledExceptionHandler : IExceptionHandler
         Details.Status = StatusCodes.Status500InternalServerError;
         Details.Type = "https://datatracker.ietf.org/doc/html/rfc7231#section-6.6.1";
         Details.Title = ExceptionMessages.UnhandledExceptionTitle;
-        Details.Detail = ExceptionMessages.UnhandledExceptionDetail;
+        Details.Detail = ExceptionMessages.UnhandledExceptionDetails;
         Details.Instance = $"{nameof(ProblemDetails)}/{exception.GetType()}";
 
         Logger.LogError(exception, ExceptionMessages.UnhandledExceptionTitle);

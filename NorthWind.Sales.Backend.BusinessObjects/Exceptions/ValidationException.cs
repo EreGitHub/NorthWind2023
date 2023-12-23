@@ -1,4 +1,6 @@
-﻿namespace NorthWind.Sales.Backend.BusinessObjects.Exceptions;
+﻿using NorthWind.Validation.Entities.ValueObjects;
+
+namespace NorthWind.Sales.Backend.BusinessObjects.Exceptions;
 
 public class ValidationException : Exception
 {

@@ -1,6 +1,4 @@
 global using NorthWind.sales.Entities.Dtos;
-global using NorthWind.sales.Entities.Interfaces.Common;
-global using NorthWind.sales.Entities.ValueObject;
 global using NorthWind.Sales.Backend.BusinessObjects.Abstractions.Specifications;
 global using NorthWind.Sales.Backend.BusinessObjects.Aggregates;
 global using NorthWind.Sales.Backend.BusinessObjects.Exceptions;
@@ -15,4 +13,7 @@ global using NorthWind.Sales.Backend.BusinessObjects.ValueObjects;
 global using NorthWind.Sales.Backend.UseCases.Common;
 global using NorthWind.Sales.Backend.UseCases.CreateOrder;
 global using NorthWind.Sales.Backend.UseCases.Resources;
+global using NorthWind.Validation.Entities.Interfaces;
+global using NorthWind.Validation.Entities.ValueObjects;
 global using System.Linq.Expressions;
+global using NorthWind.Validation.Entities.Interfaces;

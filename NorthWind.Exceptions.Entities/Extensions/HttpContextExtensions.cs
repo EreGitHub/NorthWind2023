@@ -1,4 +1,4 @@
-﻿namespace NorthWind.Sales.Backend.Presenters.Extensions;
+﻿namespace NorthWind.Exceptions.Entities.Extensions;
 
 internal static class HttpContextExtensions
 {

@@ -1,4 +1,6 @@
-﻿namespace NorthWind.Sales.Frontend.WebApiGateways;
+﻿using NorthWind.Validation.Entities.ValueObjects;
+
+namespace NorthWind.Sales.Frontend.WebApiGateways;
 
 internal class ExceptionDelegatingHandler : DelegatingHandler
 {

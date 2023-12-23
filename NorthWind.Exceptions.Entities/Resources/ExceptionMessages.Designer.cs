@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace NorthWind.Sales.Backend.Presenters.ExceptionHandlers.Resources {
+namespace NorthWind.Exceptions.Entities.Resources {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace NorthWind.Sales.Backend.Presenters.ExceptionHandlers.Resources {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("NorthWind.Sales.Backend.Presenters.ExceptionHandlers.Resources.ExceptionMessages", typeof(ExceptionMessages).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("NorthWind.Exceptions.Entities.Resources.ExceptionMessages", typeof(ExceptionMessages).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,56 +61,20 @@ namespace NorthWind.Sales.Backend.Presenters.ExceptionHandlers.Resources {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a El acceso al recurso solicitado esta restringido a usuarios autorizados..
+        ///   Busca una cadena traducida similar a Consulte al administrador..
         /// </summary>
-        internal static string UnauthorizedAccessExceptionDetail {
+        internal static string UnhandledExceptionDetails {
             get {
-                return ResourceManager.GetString("UnauthorizedAccessExceptionDetail", resourceCulture);
+                return ResourceManager.GetString("UnhandledExceptionDetails", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Acceso no autorizado..
+        ///   Busca una cadena traducida similar a El servicio no se encuntra disponible..
         /// </summary>
-        internal static string UnauthorizedAccessExceptionTitle {
+        internal static string UnhandledExceptionTitle {
             get {
-                return ResourceManager.GetString("UnauthorizedAccessExceptionTitle", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Busca una cadena traducida similar a Se encontraron uno o mas errores de actualizacion de datos. Consulte al administrador..
-        /// </summary>
-        internal static string UnitOfWorkExceptionDetail {
-            get {
-                return ResourceManager.GetString("UnitOfWorkExceptionDetail", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Busca una cadena traducida similar a Error de actualizacion.
-        /// </summary>
-        internal static string UnitOfWorkExceptionTitle {
-            get {
-                return ResourceManager.GetString("UnitOfWorkExceptionTitle", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Busca una cadena traducida similar a Se encontraron uno o mas errores de validacion de datos..
-        /// </summary>
-        internal static string ValidationExceptionDetail {
-            get {
-                return ResourceManager.GetString("ValidationExceptionDetail", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Busca una cadena traducida similar a Error en los datos de entrada..
-        /// </summary>
-        internal static string ValidationExceptionTitle {
-            get {
-                return ResourceManager.GetString("ValidationExceptionTitle", resourceCulture);
+                return ResourceManager.GetString("UnhandledExceptionTitle", resourceCulture);
             }
         }
     }

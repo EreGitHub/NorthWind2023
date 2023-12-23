@@ -2,7 +2,7 @@
 
 internal class UserService(IHttpContextAccessor contextAccessor) : IUserService
 {
-    public bool IsAuthenticate =>
+    public bool IsAuthenticated =>
         contextAccessor.HttpContext.User.Identity.IsAuthenticated;
 
     public string UserName =>

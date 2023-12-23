@@ -1,4 +1,4 @@
-﻿namespace NorthWind.sales.Entities.ValueObject;
+﻿namespace NorthWind.Validation.Entities.ValueObjects;
 
 public class ValidationError
 {

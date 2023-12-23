@@ -2,7 +2,7 @@
 
 public interface IUserService
 {
-    bool IsAuthenticate { get; }
+    bool IsAuthenticated { get; }
     string UserName { get; }
     string FullName { get; }
 }

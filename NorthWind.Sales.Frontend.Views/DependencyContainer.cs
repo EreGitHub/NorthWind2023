@@ -1,4 +1,6 @@
-﻿namespace Microsoft.Extensions.DependencyInjection;
+﻿using NorthWind.Validation.Entities.Interfaces;
+
+namespace Microsoft.Extensions.DependencyInjection;
 
 
 public static class DependencyContainer
