@@ -117,16 +117,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="UserLoginErrorDetails" xml:space="preserve">
-    <value>El correo o la contraseña son incorrectos.</value>
-  </data>
-  <data name="UserLoginErrorTitle" xml:space="preserve">
-    <value>Error de inicio de session.</value>
-  </data>
-  <data name="UserRegistrationErrorDetail" xml:space="preserve">
-    <value>Se encontraron uno o mas errores de validacion de datos.</value>
-  </data>
-  <data name="UserRegistrationErrorTitle" xml:space="preserve">
-    <value>Error en los datos de entrada.</value>
+  <data name="InvalidUserCredentialsErrorMessage" xml:space="preserve">
+    <value>Las credenciasles de susario proporcionadas son incorectas.</value>
   </data>
 </root>

@@ -9,8 +9,8 @@ public static class DependencyContainer
         services.AddTransient<IDomainTransaction, DomainRelationalTransaction>();
         //se deve agregar primero el IHttpContextAccessor y luego los demas servicios quse basen en el
         services.AddHttpContextAccessor();
-        //services.AddSingleton<IUserService, UserService>();
-        services.AddSingleton<IUserService, UserServiceFake>();
+        services.AddSingleton<IUserService, UserService>();
+        //services.AddSingleton<IUserService, UserServiceFake>();
 
         return services;
     }

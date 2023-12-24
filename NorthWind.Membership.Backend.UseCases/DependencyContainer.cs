@@ -6,6 +6,7 @@ public static class DependencyContainer
     {
         services.AddScoped<IUserRegistrationInputPort, UserRegistrationInteractor>();
         //services.TryAddScoped<ModelValidatorService<UserRegistrationDto>>();
+        services.AddScoped<IUserLoginInputPort, UserLoginInteractor>();
 
         return services;
     }

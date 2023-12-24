@@ -1,5 +1,8 @@
 global using FluentValidation;
+global using NorthWind.Membership.Entities.Dtos.UserLogin;
 global using NorthWind.Membership.Entities.Dtos.UserRegistration;
+global using NorthWind.Membership.Entities.validators.UserLogin;
+global using NorthWind.Membership.Entities.validators.UserLogin.Resources;
 global using NorthWind.Membership.Entities.validators.UserRegistration;
 global using NorthWind.Membership.Entities.validators.UserRegistration.Resources;
 global using NorthWind.Validation.Entities.Abstractions;

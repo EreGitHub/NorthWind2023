@@ -1,4 +1,9 @@
+global using Microsoft.AspNetCore.Authentication.JwtBearer;
+global using Microsoft.IdentityModel.Tokens;
+global using Microsoft.OpenApi.Models;
 global using NorthWind.Membership.Backend.AspNetIdentity.Options;
+global using NorthWind.Membership.Backend.Presenters.Options;
 global using NorthWind.Sales.Backend.EFCore.Options;
 global using NorthWind.Sales.Backend.SmptGateways.Options;
 global using NorthWind.Sales.WebApi;
+global using System.Text;

@@ -6,6 +6,17 @@ internal class MembershipService : IMembershipService
 
     public MembershipService(UserManager<NorthWindUser> userManager) => manager = userManager;
 
+    public async Task<UserDto> GetUserByCredentials(UserCredentialsDto userData)
+    {
+        UserDto FoundUser = null;
+
+        var User = await manager.FindByNameAsync(userData.Email);
+        if (User != null && await manager.CheckPasswordAsync(User, userData.Password))
+            FoundUser = new UserDto(User.UserName, User.FirstName, User.LastName);
+
+        return FoundUser;
+    }
+
     public async Task<Result<IEnumerable<ValidationError>>> Register(UserRegistrationDto userData)
     {
         var User = new NorthWindUser

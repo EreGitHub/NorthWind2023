@@ -2,7 +2,9 @@
 
 public static class DependencyContainer
 {
-    public static IServiceCollection AddNorthWindSalesServices(this IServiceCollection services, Action<DBOptions> configureOptions, Action<SmtpOptions> configureSmtpOptions, Action<MembershipOptions> configureMembershipDbOptions)
+    public static IServiceCollection
+        AddNorthWindSalesServices(this IServiceCollection services, Action<DBOptions> configureOptions, Action<SmtpOptions> configureSmtpOptions,
+        Action<MembershipOptions> configureMembershipDbOptions, Action<JwtOptions> configureJwtOptionss)
     {
         services.AddValidators()
             .AddBusinessObjectsServices()
@@ -12,7 +14,7 @@ public static class DependencyContainer
             .AddMailServices(configureSmtpOptions)
             .AddMembershipValidators()
             .AddMembershipUseCasesServices()
-            .AddMembershipPresenters()
+            .AddMembershipPresenters(configureJwtOptionss)
             .AddMembershipService(configureMembershipDbOptions);
 
 

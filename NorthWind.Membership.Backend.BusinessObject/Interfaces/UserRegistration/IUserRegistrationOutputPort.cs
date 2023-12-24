@@ -2,7 +2,7 @@
 
 public interface IUserRegistrationOutputPort
 {
-    IResult Resul { get; }
+    IResult Result { get; }
 
     Task Handle(Result<IEnumerable<ValidationError>> userRegistrationResult);
 }

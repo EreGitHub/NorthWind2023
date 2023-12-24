@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace NorthWind.Membership.Backend.Presenters.Resources {
+namespace NorthWind.Membership.Entities.validators.UserLogin.Resources {
     using System;
     
     
@@ -22,14 +22,14 @@ namespace NorthWind.Membership.Backend.Presenters.Resources {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Messages {
+    internal class UserLoginMessages {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Messages() {
+        internal UserLoginMessages() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace NorthWind.Membership.Backend.Presenters.Resources {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("NorthWind.Membership.Backend.Presenters.Resources.Messages", typeof(Messages).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("NorthWind.Membership.Entities.validators.UserLogin.Resources.UserLoginMessages", typeof(UserLoginMessages).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,38 +61,29 @@ namespace NorthWind.Membership.Backend.Presenters.Resources {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a El correo o la contraseña son incorrectos..
+        ///   Busca una cadena traducida similar a El formato de correo no es valido..
         /// </summary>
-        internal static string UserLoginErrorDetails {
+        internal static string InvalidEmailErrorMessage {
             get {
-                return ResourceManager.GetString("UserLoginErrorDetails", resourceCulture);
+                return ResourceManager.GetString("InvalidEmailErrorMessage", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Error de inicio de session..
+        ///   Busca una cadena traducida similar a El correo es requerido..
         /// </summary>
-        internal static string UserLoginErrorTitle {
+        internal static string RequiredEmailErrorMessage {
             get {
-                return ResourceManager.GetString("UserLoginErrorTitle", resourceCulture);
+                return ResourceManager.GetString("RequiredEmailErrorMessage", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Se encontraron uno o mas errores de validacion de datos..
+        ///   Busca una cadena traducida similar a La contraseña es requerida..
         /// </summary>
-        internal static string UserRegistrationErrorDetail {
+        internal static string RequiredPasswordErrorMessage {
             get {
-                return ResourceManager.GetString("UserRegistrationErrorDetail", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Busca una cadena traducida similar a Error en los datos de entrada..
-        /// </summary>
-        internal static string UserRegistrationErrorTitle {
-            get {
-                return ResourceManager.GetString("UserRegistrationErrorTitle", resourceCulture);
+                return ResourceManager.GetString("RequiredPasswordErrorMessage", resourceCulture);
             }
         }
     }

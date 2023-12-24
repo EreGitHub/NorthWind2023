@@ -8,7 +8,7 @@ internal static class UserRegistrationController
         {
             await inputPort.Handle(userData);
 
-            return presenter.Resul;
+            return presenter.Result;
         });
 
         return app;

@@ -6,6 +6,7 @@ public static class DependencyContainer
     {
         services.AddScoped<IModelValidator<UserRegistrationDto>, UserRegistrationDtoValidator>();
         services.AddDefaultModelValidatorService();
+        services.AddScoped<IModelValidator<UserCredentialsDto>, UserCredentialsDtoValidator>();
 
         return services;
     }

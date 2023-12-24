@@ -5,7 +5,8 @@ public static class CreateOrderController
     public static WebApplication UseCreateOrderController(this WebApplication app)
     {
         //de manera predeterminada el MapPost nos devuelve un ok anose que le digamos lo contrario
-        app.MapPost(Endpoints.CreateOrder, CreateOrder);
+        app.MapPost(Endpoints.CreateOrder, CreateOrder)
+            .RequireAuthorization();
 
         //app.MapPost(Endpoints.CreateOrder,
         //    async (CreateOrderDto orderDto, ICreateOrderInputPort inputPort, ICreateOrderOutputPort presenter) =>

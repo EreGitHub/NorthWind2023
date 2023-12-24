@@ -2,18 +2,18 @@
 
 internal class UserRegistrationPresenter : IUserRegistrationOutputPort
 {
-    public IResult Resul { get; private set; }
+    public IResult Result { get; private set; }
 
     public Task Handle(Result<IEnumerable<ValidationError>> userRegistrationResult)
     {
         userRegistrationResult.HandlerError(errors =>
         {
-            Resul = Results.Problem(
+            Result = Results.Problem(
                 errors.ToProblemDetails(
                     Messages.UserRegistrationErrorTitle,
                     Messages.UserRegistrationErrorDetail,
                     nameof(UserRegistrationPresenter)));
-        }, () => Resul = Results.Created());
+        }, () => Result = Results.Created());
 
         return Task.CompletedTask;
     }

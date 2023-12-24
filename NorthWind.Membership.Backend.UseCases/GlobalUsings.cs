@@ -1,7 +1,11 @@
-global using Microsoft.Extensions.DependencyInjection.Extensions;
+global using NorthWind.Membership.Backend.BusinessObject.Dtos;
 global using NorthWind.Membership.Backend.BusinessObject.Interfaces.Common;
+global using NorthWind.Membership.Backend.BusinessObject.Interfaces.UserLogin;
 global using NorthWind.Membership.Backend.BusinessObject.Interfaces.UserRegistration;
+global using NorthWind.Membership.Backend.UseCases.UserLogin;
+global using NorthWind.Membership.Backend.UseCases.UserLogin.Resources;
 global using NorthWind.Membership.Backend.UseCases.UserRegistration;
+global using NorthWind.Membership.Entities.Dtos.UserLogin;
 global using NorthWind.Membership.Entities.Dtos.UserRegistration;
 global using NorthWind.Result.Entities;
 global using NorthWind.Validation.Entities.Interfaces;
