@@ -65,7 +65,21 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NorthWind.Validation.Entiti
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NorthWind.Exceptions.Entities", "NorthWind.Exceptions.Entities\NorthWind.Exceptions.Entities.csproj", "{66B7DC19-2A1C-47EF-856C-C98F92572797}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NorthWind.Result.Entities", "NorthWind.Result.Entities\NorthWind.Result.Entities.csproj", "{A649C99E-4D61-4957-86A1-72C4890A6BF4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NorthWind.Result.Entities", "NorthWind.Result.Entities\NorthWind.Result.Entities.csproj", "{A649C99E-4D61-4957-86A1-72C4890A6BF4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NorthWind.Membership.Entities", "NorthWind.Membership.Entities\NorthWind.Membership.Entities.csproj", "{C7780394-6E24-4A38-BD39-B423E1F00709}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NorthWind.Membership.Entities.validators", "NorthWind.Membership.Entities.validators\NorthWind.Membership.Entities.validators.csproj", "{543496C6-7692-45C2-AD27-622F732F3A8E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NorthWind.Membership.Backend.BusinessObject", "NorthWind.Membership.Backend.BusinessObject\NorthWind.Membership.Backend.BusinessObject.csproj", "{ADA36237-20FA-4872-8BA5-DD8250E48743}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NorthWind.Membership.Backend.UseCases", "NorthWind.Membership.Backend.UseCases\NorthWind.Membership.Backend.UseCases.csproj", "{DDA883F2-9EB1-4A51-999B-878552A731FF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NorthWind.Membership.Backend.Presenters", "NorthWind.Membership.Backend.Presenters\NorthWind.Membership.Backend.Presenters.csproj", "{CC766322-4E1A-4C07-953A-94DA0DFE98BA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NorthWind.Membership.Backend.Controllers", "NorthWind.Membership.Backend.Controllers\NorthWind.Membership.Backend.Controllers.csproj", "{579D91E2-281F-421D-88A1-1AEA7341E14A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NorthWind.Membership.Backend.AspNetIdentity", "NorthWind.Membership.Backend.AspNetIdentity\NorthWind.Membership.Backend.AspNetIdentity.csproj", "{9956C702-359E-4AD8-ADFB-3E4C52E9D87A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -149,6 +163,34 @@ Global
 		{A649C99E-4D61-4957-86A1-72C4890A6BF4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A649C99E-4D61-4957-86A1-72C4890A6BF4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A649C99E-4D61-4957-86A1-72C4890A6BF4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C7780394-6E24-4A38-BD39-B423E1F00709}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C7780394-6E24-4A38-BD39-B423E1F00709}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C7780394-6E24-4A38-BD39-B423E1F00709}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C7780394-6E24-4A38-BD39-B423E1F00709}.Release|Any CPU.Build.0 = Release|Any CPU
+		{543496C6-7692-45C2-AD27-622F732F3A8E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{543496C6-7692-45C2-AD27-622F732F3A8E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{543496C6-7692-45C2-AD27-622F732F3A8E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{543496C6-7692-45C2-AD27-622F732F3A8E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ADA36237-20FA-4872-8BA5-DD8250E48743}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ADA36237-20FA-4872-8BA5-DD8250E48743}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ADA36237-20FA-4872-8BA5-DD8250E48743}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ADA36237-20FA-4872-8BA5-DD8250E48743}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DDA883F2-9EB1-4A51-999B-878552A731FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DDA883F2-9EB1-4A51-999B-878552A731FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DDA883F2-9EB1-4A51-999B-878552A731FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DDA883F2-9EB1-4A51-999B-878552A731FF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CC766322-4E1A-4C07-953A-94DA0DFE98BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC766322-4E1A-4C07-953A-94DA0DFE98BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC766322-4E1A-4C07-953A-94DA0DFE98BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC766322-4E1A-4C07-953A-94DA0DFE98BA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{579D91E2-281F-421D-88A1-1AEA7341E14A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{579D91E2-281F-421D-88A1-1AEA7341E14A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{579D91E2-281F-421D-88A1-1AEA7341E14A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{579D91E2-281F-421D-88A1-1AEA7341E14A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9956C702-359E-4AD8-ADFB-3E4C52E9D87A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9956C702-359E-4AD8-ADFB-3E4C52E9D87A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9956C702-359E-4AD8-ADFB-3E4C52E9D87A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9956C702-359E-4AD8-ADFB-3E4C52E9D87A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -181,6 +223,13 @@ Global
 		{F8EF4FE9-86E0-421E-9CFE-069B96459758} = {7424261C-FAAA-4696-B5CC-14C0056CE360}
 		{66B7DC19-2A1C-47EF-856C-C98F92572797} = {7424261C-FAAA-4696-B5CC-14C0056CE360}
 		{A649C99E-4D61-4957-86A1-72C4890A6BF4} = {7424261C-FAAA-4696-B5CC-14C0056CE360}
+		{C7780394-6E24-4A38-BD39-B423E1F00709} = {7424261C-FAAA-4696-B5CC-14C0056CE360}
+		{543496C6-7692-45C2-AD27-622F732F3A8E} = {7424261C-FAAA-4696-B5CC-14C0056CE360}
+		{ADA36237-20FA-4872-8BA5-DD8250E48743} = {2EDE8443-E5D4-4CB6-837F-5C8BFCE5A028}
+		{DDA883F2-9EB1-4A51-999B-878552A731FF} = {2EDE8443-E5D4-4CB6-837F-5C8BFCE5A028}
+		{CC766322-4E1A-4C07-953A-94DA0DFE98BA} = {6D63DB66-2361-4492-9092-86E7F3D43A14}
+		{579D91E2-281F-421D-88A1-1AEA7341E14A} = {E7CFB996-AEFF-4316-8481-1440597BFE12}
+		{9956C702-359E-4AD8-ADFB-3E4C52E9D87A} = {1E2CC4F0-89CB-490D-AB91-DDD25F875C53}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6ED95F09-51C5-4FFD-81DE-46C3B8F3BD27}

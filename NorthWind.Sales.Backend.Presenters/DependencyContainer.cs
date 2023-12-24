@@ -7,6 +7,7 @@ public static class DependencyContainer
         services.AddScoped<ICreateOrderOutputPort, CreateOrderPresenter>();
         services.AddCustomExceptionHandler<ValidationException, ValidationExceptionHandler>();
         services.AddCustomExceptionHandler<UnitOfWorkException, UnitOfWorkExceptionHandler>();
+        //este manejador al final siempre
         services.AddCustomExceptionHandler<UnauthorizedAccessException, UnauthorizedAccessExceptionHandler>();
 
         services.AddUnhandledExceptionHandler();

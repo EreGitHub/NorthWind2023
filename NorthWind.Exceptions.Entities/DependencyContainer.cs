@@ -2,9 +2,9 @@
 
 public static class DependencyContainer
 {
-    public static IServiceCollection AddCustomExceptionHandler<ExcetionType, HandlerType>(this IServiceCollection services)
-        where ExcetionType : Exception
-        where HandlerType : class, IExceptionHandler<ExcetionType>
+    public static IServiceCollection AddCustomExceptionHandler<ExceptionType, HandlerType>(this IServiceCollection services)
+        where ExceptionType : Exception
+        where HandlerType : class, IExceptionHandler<ExceptionType>
     {
         services.TryAddOrchestractor();
         services.AddKeyedSingleton<object, HandlerType>(typeof(IExceptionHandler<>));

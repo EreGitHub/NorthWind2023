@@ -6,6 +6,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\NorthWind.Membership.Backend.AspNetIdentity\NorthWind.Membership.Backend.AspNetIdentity.csproj" />
+    <ProjectReference Include="..\NorthWind.Membership.Backend.Controllers\NorthWind.Membership.Backend.Controllers.csproj" />
+    <ProjectReference Include="..\NorthWind.Membership.Backend.Presenters\NorthWind.Membership.Backend.Presenters.csproj" />
+    <ProjectReference Include="..\NorthWind.Membership.Backend.UseCases\NorthWind.Membership.Backend.UseCases.csproj" />
+    <ProjectReference Include="..\NorthWind.Membership.Entities.validators\NorthWind.Membership.Entities.validators.csproj" />
     <ProjectReference Include="..\NorthWind.Sales.Backend.Controllers\NorthWind.Sales.Backend.Controllers.csproj" />
     <ProjectReference Include="..\NorthWind.Sales.Backend.EFCore\NorthWind.Sales.Backend.EFCore.csproj" />
     <ProjectReference Include="..\NorthWind.Sales.Backend.Presenters\NorthWind.Sales.Backend.Presenters.csproj" />

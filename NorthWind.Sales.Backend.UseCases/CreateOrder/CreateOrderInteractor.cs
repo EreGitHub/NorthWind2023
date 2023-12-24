@@ -7,7 +7,7 @@ internal class CreateOrderInteractor : ICreateOrderInputPort
     private readonly ICommandsRepository repository;
     private readonly ICreateOrderOutputPort outputPort;
     private readonly IDomainTransaction domainTransaction;
-    private readonly IEnumerable<IModelValidator<CreateOrderDto>> validators;
+    private readonly IModelValidatorService<CreateOrderDto> validationService;
     private readonly IDomainEventHub<SpecialOrderCreatedEvent> domainEventHub;
 
     public CreateOrderInteractor(
@@ -16,7 +16,7 @@ internal class CreateOrderInteractor : ICreateOrderInputPort
     ICommandsRepository repository,
     ICreateOrderOutputPort outputPort,
     IDomainTransaction domainTransaction,
-    IEnumerable<IModelValidator<CreateOrderDto>> validators,
+    IModelValidatorService<CreateOrderDto> validationService,
     IDomainEventHub<SpecialOrderCreatedEvent> domainEventHub)
     {
         this.userService = userService;
@@ -24,7 +24,7 @@ internal class CreateOrderInteractor : ICreateOrderInputPort
         this.repository = repository;
         this.outputPort = outputPort;
         this.domainTransaction = domainTransaction;
-        this.validators = validators;
+        this.validationService = validationService;
         this.domainEventHub = domainEventHub;
     }
     public async ValueTask Handle(CreateOrderDto orderDto)
@@ -32,15 +32,8 @@ internal class CreateOrderInteractor : ICreateOrderInputPort
         if (!userService.IsAuthenticated)
             throw new UnauthorizedAccessException();
 
-        //using var Enumerator = Validators.GetEnumerator();
-        var Enumerator = validators.GetEnumerator();
-        bool IsValid = true;
-
-        while (IsValid && Enumerator.MoveNext())
-            IsValid = await Enumerator.Current.Validate(orderDto);
-
-        if (!IsValid)
-            throw new ValidationException(Enumerator.Current.Errors);
+        if (!await validationService.Validate(orderDto))
+            throw new ValidationException(validationService.Errors);
 
         await domainLogger.LogInformation(new DomainLog(
              CreateOrderMessages.StartingPurchaseOrderCreation,

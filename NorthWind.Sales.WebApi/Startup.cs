@@ -10,7 +10,9 @@ public static class Startup
             dbOptions =>
                 builder.Configuration.GetSection(DBOptions.SectionKey).Bind(dbOptions),
             smtpOptions =>
-                builder.Configuration.GetSection(SmtpOptions.SectionKey).Bind(smtpOptions));
+                builder.Configuration.GetSection(SmtpOptions.SectionKey).Bind(smtpOptions),
+            membershipDbOptions =>
+                builder.Configuration.GetSection(MembershipOptions.SectionKey).Bind(membershipDbOptions));
         builder.Services.AddCors(options =>
         {
             options.AddDefaultPolicy(config =>

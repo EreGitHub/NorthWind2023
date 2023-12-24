@@ -16,13 +16,12 @@ public class Result<ErrorResultType>
         HasError = true;
     }
 
-    public void HandlerError(Action<ErrorResultType> whenHasErrorAction)
+    public void HandlerError(Action<ErrorResultType> whenHasErrorAction, Action whenIsSuccessAction = null)
     {
         if (HasError)
             whenHasErrorAction(ErrorValue);
         else
             whenIsSuccessAction?.Invoke();
-
         //if (whenIsSuccessAction != null)
         //    whenIsSuccessAction();
     }

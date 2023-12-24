@@ -1,3 +1,4 @@
+global using Microsoft.Extensions.DependencyInjection.Extensions;
 global using NorthWind.sales.Entities.Dtos;
 global using NorthWind.Sales.Backend.BusinessObjects.Abstractions.Specifications;
 global using NorthWind.Sales.Backend.BusinessObjects.Aggregates;
@@ -16,4 +17,3 @@ global using NorthWind.Sales.Backend.UseCases.Resources;
 global using NorthWind.Validation.Entities.Interfaces;
 global using NorthWind.Validation.Entities.ValueObjects;
 global using System.Linq.Expressions;
-global using NorthWind.Validation.Entities.Interfaces;
