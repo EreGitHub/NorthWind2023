@@ -1,9 +1,11 @@
 ﻿namespace NorthWind.Exceptions.Entities.ExceptionHandlers;
 
+//este va orquestar a los exceptions handlers, es decir, va a buscar el handler que corresponda
 internal class ExceptionHandlerOrchestrator : IExceptionHandler
 {
     readonly Dictionary<Type, object> Handlers;
 
+    //nueva forma para pedir servicios
     public ExceptionHandlerOrchestrator(
         [FromKeyedServices(typeof(IExceptionHandler<>))] IEnumerable<object> handlers)
     {
@@ -19,7 +21,7 @@ internal class ExceptionHandlerOrchestrator : IExceptionHandler
             Handlers.TryAdd(ExceptionType, Handler);
         }
     }
-
+    //Handle #1, aqui solo vamos a manejar los que heredan de IExceptionHandler<> pero podemos hacer para maneje todas las excepciones
     public async ValueTask<bool> TryHandleAsync(HttpContext httpContext, Exception exception, CancellationToken cancellationToken)
     {
         bool Handled = false;
@@ -28,6 +30,8 @@ internal class ExceptionHandlerOrchestrator : IExceptionHandler
         {
             Type HandlerType = Handler.GetType();
             ProblemDetails Details = (ProblemDetails)HandlerType
+                //esto no hace nada "<Exception>" por que lo unico que queremos es 
+                //obtener el metodo nombre "Handle" para no poner quemado la palabra.
                 .GetMethod(nameof(IExceptionHandler<Exception>.Handle))
                 .Invoke(Handler, new object[] { exception });
 

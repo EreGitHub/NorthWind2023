@@ -43,7 +43,9 @@ internal class CreateOrderDtoValidator : ValidatorBase<CreateOrderDto>
             .NotEmpty()
             .WithMessage(CreateOrderMessages.OrderDetailsNotEmpty);
 
+        //validamos cada instacia de order-detail
         RuleForEach(order => order.OrderDetails)
+            //le pasamos su validator
             .SetValidator(new CreateOrderDetailDtoValidator());
     }
 }

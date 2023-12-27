@@ -6,6 +6,7 @@ internal class UnhandledExceptionHandler : IExceptionHandler
 
     public UnhandledExceptionHandler(ILogger<UnhandledExceptionHandler> logger) => Logger = logger;
 
+    //Handle #2, este es otro manejador de excepciones, pero este es para las excepciones que no se han manejado en el handle #1
     public async ValueTask<bool> TryHandleAsync(HttpContext httpContext, Exception exception, CancellationToken cancellationToken)
     {
         ProblemDetails Details = new ProblemDetails();
@@ -19,7 +20,8 @@ internal class UnhandledExceptionHandler : IExceptionHandler
         Logger.LogError(exception, ExceptionMessages.UnhandledExceptionTitle);
 
         await httpContext.WriteProblemDetails(Details);
-
+        //aqui estoy retornando true por que ya se manejo la excepcion
+        //en caso que exista otro manejador podriamos retornar false
         return true;
     }
 }

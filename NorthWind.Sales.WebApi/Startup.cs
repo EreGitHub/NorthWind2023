@@ -2,6 +2,7 @@
 
 public static class Startup
 {
+    //es este metodo lo usamos para configurarlos o registrarlos
     public static WebApplication CreateWebApplication(this WebApplicationBuilder builder)
     {
         builder.Services.AddEndpointsApiExplorer();
@@ -40,6 +41,7 @@ public static class Startup
         return builder.Build();
     }
 
+    //es este metodo usamos los servicios que registramos
     public static WebApplication ConfigureWebApplication(this WebApplication app)
     {
         app.UseExceptionHandler(builder => { });

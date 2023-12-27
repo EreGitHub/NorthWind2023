@@ -1,5 +1,6 @@
 ﻿namespace NorthWind.Sales.Backend.UseCases.CreateOrder;
 
+//Este validator se queda en BE porque solo se usara en BE y no en FE.
 internal class CreateOrderDBValidator : IModelValidator<CreateOrderDto>
 {
     readonly IQueriesRepository Repository;

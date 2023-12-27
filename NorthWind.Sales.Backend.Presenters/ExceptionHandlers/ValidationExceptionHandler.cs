@@ -1,6 +1,4 @@
-﻿using NorthWind.Exceptions.Entities.Interfaces;
-
-namespace NorthWind.Sales.Backend.Presenters.ExceptionHandlers;
+﻿namespace NorthWind.Sales.Backend.Presenters.ExceptionHandlers;
 
 internal class ValidationExceptionHandler : IExceptionHandler<ValidationException>
 {

@@ -9,7 +9,6 @@ public static class DependencyContainer
         services.AddCustomExceptionHandler<UnitOfWorkException, UnitOfWorkExceptionHandler>();
         //este manejador al final siempre
         services.AddCustomExceptionHandler<UnauthorizedAccessException, UnauthorizedAccessExceptionHandler>();
-
         services.AddUnhandledExceptionHandler();
 
         return services;

@@ -1,7 +1,5 @@
 global using Microsoft.AspNetCore.Http;
-global using Microsoft.AspNetCore.Mvc;
 global using NorthWind.sales.Entities.Dtos;
-global using NorthWind.sales.Entities.ValueObject;
 global using NorthWind.Sales.Backend.BusinessObjects.Aggregates;
 global using NorthWind.Sales.Backend.BusinessObjects.Enums;
 global using NorthWind.Sales.Backend.BusinessObjects.Interfaces.Authentication;
@@ -12,6 +10,7 @@ global using NorthWind.Sales.Backend.BusinessObjects.Interfaces.Transactions;
 global using NorthWind.Sales.Backend.BusinessObjects.POCOEntities;
 global using NorthWind.Sales.Backend.BusinessObjects.Services;
 global using NorthWind.Sales.Backend.BusinessObjects.ValueObjects;
+global using NorthWind.Validation.Entities.ValueObjects;
 global using System;
 global using System.Collections.Generic;
 global using System.Linq;

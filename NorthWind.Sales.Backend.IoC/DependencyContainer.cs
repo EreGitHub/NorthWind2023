@@ -17,7 +17,6 @@ public static class DependencyContainer
             .AddMembershipPresenters(configureJwtOptionss)
             .AddMembershipService(configureMembershipDbOptions);
 
-
         return services;
     }
 }

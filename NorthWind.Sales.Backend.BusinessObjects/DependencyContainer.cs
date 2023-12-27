@@ -4,6 +4,7 @@ public static class DependencyContainer
 {
     public static IServiceCollection AddBusinessObjectsServices(this IServiceCollection services)
     {
+        //asi se registra los genericos
         services.AddScoped(typeof(IDomainEventHub<>), typeof(DomainEventHub<>));
         services.AddScoped<IDomainLogger, DomainLogger>();
         services.AddTransient<IDomainTransaction, DomainRelationalTransaction>();
