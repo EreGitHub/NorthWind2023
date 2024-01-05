@@ -10,7 +10,6 @@ internal class UserService(IHttpContextAccessor contextAccessor) : IUserService
 
     public string FullName =>
         contextAccessor.HttpContext.User.Claims
-        //.Where(context => context.Type == "FullName")
         .Where(context => context.Type == nameof(IUserService.FullName))
         .Select(context => context.Value).FirstOrDefault();
 }

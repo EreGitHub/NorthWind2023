@@ -32,7 +32,7 @@ public static class Startup
                 JwtConfigurationSection.Bind(options.TokenValidationParameters);
                 options.TokenValidationParameters.IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(JwtConfigurationSection[nameof(JwtOptions.SecurityKey)]));
             });
-        builder.Services.AddAuthorization();
+        builder.Services.AddAuthorization();        
         //builder.Services.AddAuthorization(options =>
         //{
         //    options.AddPolicy("Admin", policy => policy.RequireClaim("Admin", "true"));
@@ -46,11 +46,12 @@ public static class Startup
     {
         app.UseExceptionHandler(builder => { });
 
+        //esto tanbien los podriamos hacer con Directivas de compilacion
         if (app.Environment.IsDevelopment())
         {
             app.UseSwagger();
             app.UseSwaggerUI();
-        }
+        }        
 
         app.MapNorthWindSalesEndpoints();
         app.UseCors();

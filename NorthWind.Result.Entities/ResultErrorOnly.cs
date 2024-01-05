@@ -1,5 +1,5 @@
 ﻿namespace NorthWind.Result.Entities;
-
+//esta clase solo reporta errores no resultados de la operacion
 public class Result<ErrorResultType>
 {
     public ErrorResultType ErrorValue { get; private set; }

@@ -1,5 +1,6 @@
 ﻿namespace NorthWind.Exceptions.Entities.ExceptionHandlers;
 
+//este es un manejador universal por decirlo asi, si no hay en manejador personalozado este lo va manejar
 internal class UnhandledExceptionHandler : IExceptionHandler
 {
     readonly ILogger<UnhandledExceptionHandler> Logger;

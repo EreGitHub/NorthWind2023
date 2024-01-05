@@ -1,5 +1,6 @@
 ﻿namespace NorthWind.Result.Entities;
 
+//esta clase reporta el resultado de la operacion exitosa y tambien los errores
 public class Result<SuccessResultType, ErrorResultType> : Result<ErrorResultType>
 {
     public SuccessResultType SuccessValue { get; private set; }
