@@ -8,6 +8,7 @@ internal class NorthWindMembershipContext : IdentityDbContext<NorthWindUser>
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         optionsBuilder.UseSqlServer(_dbOptions.ConnectionString);
+        //esta linea lo dejamos asi para que se configure el context de identity
         base.OnConfiguring(optionsBuilder);
     }
 }

@@ -25,6 +25,7 @@ public static class Startup
                 config.AllowAnyOrigin();
             });
         });
+        //registramos el esquema de autenticacion
         builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             .AddJwtBearer(options =>
             {
